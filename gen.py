@@ -271,7 +271,7 @@ class Generator:
         return self.decide_act(usr_act)
 
     def _phase_34(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_35(self, context):
         return "ERROR" , 0
