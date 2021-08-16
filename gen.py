@@ -274,37 +274,37 @@ class Generator:
         return self.decide_act("else")
 
     def _phase_35(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_36(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_37(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_38(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_39(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_40(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_41(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_42(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_43(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_44(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
     def _phase_45(self, context):
-        return "ERROR" , 0
+        return self.decide_act("else")
 
         
 
