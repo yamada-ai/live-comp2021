@@ -280,7 +280,15 @@ class Generator:
         return self.decide_act("else")
 
     def _phase_37(self, context):
-        return self.decide_act("else")
+        usr = context[-1]
+        no_list = "具体的にな 具体的にはな 特にはな 特にな".split()
+
+        usr_act = "else"
+        for no in no_list:
+            if no in usr:
+                usr_act = "no"
+                break
+        return self.decide_act(usr_act)
 
     def _phase_38(self, context):
         return self.decide_act("else")
