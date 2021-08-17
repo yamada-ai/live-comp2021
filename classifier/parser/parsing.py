@@ -41,7 +41,6 @@ class CulcParser:
         self.multi_op = set( map( self.TNUM_func, "* / and".split() ) )
         self.add_op = set( map( self.TNUM_func, "+ - or".split() ))
         self.relation_op = set( map(self.TNUM_func, "= < > <= >=".split()) )
-        # self.type_dict = {"INT":0, "BOOL": 1, "STRING": 2}
         self.val_stack = Stack()
         
         
