@@ -3,8 +3,8 @@ import sys
 
 from spacy.util import normalize_slice
 # sys.dont_write_bytecode = True
-# sys.path.append('../')
-from ..tools import preprocess
+sys.path.append('../')
+from tools import preprocess
 
 import pprint
 import random
@@ -109,7 +109,7 @@ class Feature:
 
 
 if __name__ == '__main__':
-    texts = ['そうですね。最近とても暑いですから。', '休日に行きたいと思います。']
+    texts = ['今までにヘラジカを見たことある？', '休日に行きたいと思います。']
 #     texts = ['そうですね。',
 #  '最近とても暑いですから。',
 #  '休日に行きたいと思います。',
@@ -123,9 +123,10 @@ if __name__ == '__main__':
 #  'どこに行くといいですか？',
 #  '明日はとても暑くなるみたいですね。',
 #  '涼しくなってきたら、一緒に山へ行きたいですね。']
-    # texts = texts[0]
+    texts = texts[0]
     F = Feature()
-    # pos = features.f_pos_order(texts)
+    pos = F.f_pos_order(texts)
+    print(pos)
     # normal = features.f_normalize_noun_order(texts)
-    F.make_features(texts)
-    F.show_features()
+    # F.make_features(texts)
+    # F.show_features()
