@@ -1,7 +1,7 @@
 
-from ast import parse
-from lexical import Tokenizer
-from lexical import Token
+from parse import Tokenizer
+from parse import Token
+
 from enum import IntEnum, auto
 
 class Stack:
@@ -33,19 +33,29 @@ class Ltype(IntEnum):
 class CulcParser:
 
     def __init__(self) -> None:
+        from parse.classify import Classifier
         self.LA = Tokenizer()
         self.TNUM_func = lambda n: self.tname2TNUM(n)
+        self.var_init()
 
-        self.constant_t = set( map(self.TNUM_func,  "TNUMBER TSTRING True False [".split() ) )
+        self.constant_t = set( map(self.TNUM_func,  "TNUMBER TSTRING True False [".split() + self.var_l ) )
         self.func_name = set( map(self.TNUM_func, "in count re".split()) )
         self.multi_op = set( map( self.TNUM_func, "* / and".split() ) )
         self.add_op = set( map( self.TNUM_func, "+ - or".split() ))
         self.relation_op = set( map(self.TNUM_func, "= < > <= >=".split()) )
         self.val_stack = Stack()
-        
+
+        self.classifier = Classifier()
+
+    def var_init(self):
+        self.var_l = "topicID phaseID actID topicTurn phaseTurn usr".split()
+        self.var_id = set( map(self.TNUM_func, self.var_l) )
+        self.var = dict( zip(self.var_l, [0]*len(self.var_l) ) )
+        self.var["usr"] = ["しね", "消えろ", "うざい"]
         
     def parsing(self, code):
         res = self.LA.lexical_analyze(code)
+        self.LA.display_tokens()
         if res < 0:
             print("failure Lexical Analyze")
             return -1
@@ -66,6 +76,15 @@ class CulcParser:
         if self.token != self.tname2TNUM("if"):
             print("keyword 'if' is not found")
             return -1
+        
+        self.token = self.next_token()
+
+        result = self.expression()
+        if result != Ltype.BOOL:
+            print("IF: expression() is not BOOL")
+            return -1
+        
+        return result
         
 
     def expression(self):
@@ -234,6 +253,8 @@ class CulcParser:
         elif self.token in self.func_name:
             if self.token == self.tname2TNUM("in"):
                 result = self._in()
+            
+            return result
         
         else:
             print("factor error : unknown")
@@ -300,8 +321,41 @@ class CulcParser:
                 return Ltype.ArBOOL
             else:
                 return Ltype.ArSTRING
+        
+        # topicID とか
+        elif self.token.surface in self.var_l:
+            value = self.var[self.token.get_surface()]
+            if self.token == self.tname2TNUM("usr"):
+                self.token = self.next_token()
+                if self.token == self.tname2TNUM("["):
+                    self.token = self.next_token()
+                    index_t = self.expression()
+                    if index_t != Ltype.INT:
+                        print("index type is requred INT")
+                        return -1
 
+                    if self.token != self.tname2TNUM("]"):
+                        print("constant error usr: ']' of Array is requred")
+                        return -1
+                    index = self.val_stack.pop()
+                    self.token = self.next_token()
+                    try:
+                        value = value[index]
+                        self.val_stack.push(value)
+                        return Ltype.STRING
+                    except:
+                        print("constant error usr: out of range")
+                        return -1
 
+                else:
+                    self.val_stack.push(value)
+                    return Ltype.ArSTRING
+            else:
+                self.token = self.next_token()
+                self.val_stack.push(value)
+                return Ltype.INT
+
+        
     def multiplicative_operator(self)  -> Ltype:
         if self.token == self.tname2TNUM("*") or self.token == self.tname2TNUM("/"):
             self.token = self.next_token()
@@ -331,8 +385,6 @@ class CulcParser:
         
         self.token = self.next_token()
         arg1_t = self.expression()
-
-        
 
         element_t = None
         if arg1_t in [Ltype.ArINT, Ltype.ArBOOL, Ltype.ArSTRING]:
@@ -373,6 +425,8 @@ class CulcParser:
         if self.token != self.tname2TNUM(")"):
             print("in : ')' is required")
             return -1
+        
+        return Ltype.BOOL
     
     def _in_func(self, arg1, arg2):
         result = False
@@ -398,14 +452,24 @@ class CulcParser:
 
 if __name__ == "__main__":
     print("start")
-    code = ' 5/2 + 10 + 3 > 0'
-    code = 'if in( ["aa", "b", "c"] , "aa" ):'
+    code = ' topic'
+    # code = 'in( ["aa", "b", "c"] , "aa" )'
+    # code = 'in( "小林", usr[-1] )'
+    
+    # 将来これも出来るはず
+    # ユーザ発話に"同期"が含まれ，質問文か
+    # code = 'why(usr) and in( "同期", usr )'
+    # """
+    # if : 'why(usr) and in( "同期", usr )'
+    # reply : "あいつらです"
+    # """
+    
     parser = CulcParser()
-    result = parser.parsing(code)
-    print(result)
+    parser.parsing(code)
+    # print(result)
     # print(parser.LA.display_tokens())
-    # parser.expression()
-    # print(parser.val_stack.stack)
+    parser.expression()
+    print(parser.val_stack.stack)
 
     # func = lambda n: parser.tname2TNUM(n)
     # tnum_s = set( map(func,  "TNUMBER TSTRING True False".split() ) )

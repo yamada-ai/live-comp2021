@@ -21,3 +21,5 @@ class DataManager:
             obj = pickle.load(f)
         print("success load : {0}{1}".format(self.data_path, name))
         return obj
+
+

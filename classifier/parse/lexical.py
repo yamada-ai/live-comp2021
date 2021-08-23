@@ -36,7 +36,7 @@ class Token:
 
 class Tokenizer:
     def __init__(self) -> None:
-        self.keywords = "if and or not True False count in re".split()
+        self.keywords = "if and or not True False count in re topicID phaseID actID topicTurn phaseTurn usr".split()
         self.symbols = "+ - * / = <= >= < > ( ) : , [ ]".split()
         self.TTOKEN = "TNUMBER TSTRING TSKIP".split()
 

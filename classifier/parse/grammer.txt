@@ -4,7 +4,7 @@ program ::= { token | separator}
 
 token ::= keyword | integer | string | symbol
 
-keyword ::= "if" | "and" | "or"| "not" | "True" | "False" | "count" | "in" 
+keyword ::= "if" | "and" | "or"| "not" | "True" | "False" | "count" | "in" | "why" | "what" | "how" | "when" | "who" | "where" | "yn" | "positive" | "negative" | 
 
 integer ::= digit { digit }
 
