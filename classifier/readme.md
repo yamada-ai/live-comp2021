@@ -16,7 +16,7 @@
         "rules" :[
             {
                 # トピックidが 2 で，ターンが2
-                "rule" : "if topic_id = 2 and topic_turn = 2 :"
+                "rule" : "if topicID = 2 and topicTurn = 2 :"
             },
             {
                 # 最後のユーザ発話に 'abc', 'cba' のいずれかが含まれているか

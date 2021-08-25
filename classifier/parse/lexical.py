@@ -180,12 +180,12 @@ class Tokenizer:
         for token in self.tokens:
             print(token)
 
-if __name__ == "__main__":
-    print("start")
-    code = '[2 ,3 ,4]'
-    # code = "abcdefghijk"
+# if __name__ == "__main__":
+#     print("start")
+#     code = '[2 ,3 ,4]'
+#     # code = "abcdefghijk"
 
-    LA = Tokenizer()
-    print(LA.TNUM_dict)
-    LA.lexical_analyze(code)
-    LA.display_tokens()
+#     LA = Tokenizer()
+#     print(LA.TNUM_dict)
+#     LA.lexical_analyze(code)
+#     LA.display_tokens()

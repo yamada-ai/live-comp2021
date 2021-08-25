@@ -1,6 +1,6 @@
 
-from parse import Tokenizer
-from parse import Token
+from .lexical import Tokenizer
+from .lexical import Token
 
 from enum import IntEnum, auto
 
@@ -33,7 +33,7 @@ class Ltype(IntEnum):
 class CulcParser:
 
     def __init__(self) -> None:
-        from parse.classify import Classifier
+        from .classify import Classifier
         self.LA = Tokenizer()
         self.TNUM_func = lambda n: self.tname2TNUM(n)
         self.var_init()
@@ -452,7 +452,7 @@ class CulcParser:
 
 if __name__ == "__main__":
     print("start")
-    code = ' topic'
+    code = ' topicID = 0'
     # code = 'in( ["aa", "b", "c"] , "aa" )'
     # code = 'in( "小林", usr[-1] )'
     

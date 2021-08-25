@@ -1,3 +1,5 @@
-from parse.lexical import Token, Tokenizer
-from parse.parsing import CulcParser
-# from parse.classify import Classifier
+from .lexical import Token, Tokenizer
+from .parsing import CulcParser
+from .classify import Classifier
+
+# import parsing
