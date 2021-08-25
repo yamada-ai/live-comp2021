@@ -1,5 +1,5 @@
 {
-  "topic_id": 3,
+  "topic_id": 2,
   "phase": [
     {
       "phase_id": 0,
@@ -215,7 +215,7 @@
   "change_topic": [
     {
       "condition": "False",
-      "next": 3
+      "next": 2
     }
   ]
 }
