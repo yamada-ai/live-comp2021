@@ -1,0 +1,61 @@
+{
+  "topic_id": 0,
+  "phase": [
+    {
+      "phase_id": 0,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "湯川先輩お疲れ様です! 今お時間いいですか?",
+          "next": [1, 2]
+        },
+        {
+          "act_id": 1,
+          "condition": "if in('時間はな', '忙し', '大変', '時間がな', 'ない', usr[-1])",
+          "reply": "じゃあ、手短にお話ししますね。次の週末って予定ありますか?",
+          "next": [3]
+        },
+        {
+          "act_id": 2,
+          "condition": "if True",
+          "reply": "次の週末って何か予定ありますか?",
+          "next": [3]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if act_id = 3",
+          "next": 1
+        }
+      ]
+    },
+    {
+      "phase_id": 1,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "実はいつも私と一緒にいる同期6人でオンライン飲み会を企画してまして、湯川先輩もどうですか?",
+          "next":[1]
+        }
+      ],
+    "change_phase": [
+      {
+        "condition": "if act_id = 1",
+        "next": [2]
+      }
+    ]
+    }
+  ],
+  "next_topic": [
+    {
+      "condition": "if in('小林')",
+      "next": 2
+    },
+    {
+      "condition": "if phase_id = 2",
+      "next": 1
+    }
+  ]
+}
