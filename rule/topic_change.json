@@ -1,11 +1,11 @@
 {
   "qa_rule": {
-    "file": "qa.json"
+    "file_name": "qa.json"
   },
   "topic_rule": [
     {
       "topic_id": 0,
-      "file": "general.json",
+      "file_name": "general.json",
       "change_topic": [
         {
           "condition": "if in('小林')",
@@ -19,7 +19,7 @@
     },
     {
       "topic_id": 1,
-      "file": "lead_kobayashi.json",
+      "file_name": "lead_kobayashi.json",
       "change_topic": [
         {
           "condition": "if in('小林')",
@@ -29,7 +29,7 @@
     },
     {
       "topic_id": 2,
-      "file": "kobayashi.json",
+      "file_name": "kobayashi.json",
       "change_topic": [
         {
           "condition": "if False",
