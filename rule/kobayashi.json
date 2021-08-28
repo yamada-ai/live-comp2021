@@ -1,5 +1,4 @@
 {
-  "topic_id": 2,
   "phase": [
     {
       "phase_id": 0,
@@ -14,7 +13,7 @@
       "change_phase": [
         {
           "condition": "if act_id = 1",
-          "next": 1
+          "next": [1]
         }
       ]
     },
@@ -46,7 +45,7 @@
       "change_phase": [
         {
           "condition": "if act_id = 3",
-          "next": 2
+          "next": [2]
         }
       ]
     },
@@ -78,7 +77,7 @@
       "change_phase": [
         {
           "condition": "if act_id = 3",
-          "next": 3
+          "next": [3]
         }
       ]
     },
@@ -110,7 +109,7 @@
       "change_phase": [
         {
           "condition": "if act_id = 3",
-          "next": 4
+          "next": [4]
         }
       ]
     },
@@ -142,7 +141,7 @@
       "change_phase": [
         {
           "condition": "if act_id = 3",
-          "next": 5
+          "next": [5]
         }
       ]
     },
@@ -167,7 +166,7 @@
       "change_phase": [
         {
           "condition": "if act_id = 2",
-          "next": 6
+          "next": [6]
         }
       ]
     },
@@ -192,7 +191,7 @@
       "change_phase": [
         {
           "condition":"if act_id = 2",
-          "next": 7
+          "next": [7]
         }
       ]
     },
@@ -204,28 +203,22 @@
           "condition": "if True",
           "reply": "いや、色々言っちゃいましたしちょっとごちゃごちゃになっている部分もあるとは思いますが、全部振り返ったら行きたくなってくるんじゃないですか?",
           "qa_reply": "いやでも、色々言っちゃいましたしちょっとごちゃごちゃになっている部分もあるとは思いますが、全部振り返ったら行きたくなってくるんじゃないですか?",
-          "next": 1
+          "next": [1]
         },
         {
           "act_id": 1,
           "condition": "if True",
           "reply": "まあ、少しですけどまだ時間もありますし、もうちょっと考えておいてくださいよ。また連絡しますから。",
           "qa_reply": "少しですけどまだ時間もありますし、もうちょっと考えておいてくださいよ。また連絡しますから。",
-          "next": 0
+          "next": [0]
         }
       ],
       "change_phase": [
         {
           "condition": "if False",
-          "next": 7
+          "next": [7]
         }
       ]
-    }
-  ],
-  "change_topic": [
-    {
-      "condition": "if False",
-      "next": 2
     }
   ]
 }

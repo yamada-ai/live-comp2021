@@ -1,0 +1,423 @@
+{
+  "phase": [
+    {
+      "phase_id": 0,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if positive",
+          "reply": "じゃあ、参加していただけますよね?",
+          "qa_reply": "楽しそうでしょ? 参加してもらえますか?",
+          "next": [2]
+        },
+        {
+        "act_id": 1,
+        "condition": "if True",
+        "reply": "何か事情があるんですか?",
+        "qa_reply": "あれ、もしかしてそういうところが嫌なんですか?  もしかして他にも理由があるんじゃないですか?",
+        "next": [2]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 2 and in('業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー',usr[-1])",
+          "next": [1]
+        }
+      ]
+    },
+    {
+      "phase_id": 1,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "なるほど、大変ですね。でも、そういう場合は日程変更しますよ。忙しい時が終わってからでいいんでやりましょう。 それなら大丈夫ですよね?",
+          "qa_reply": "何が理由でいけないんですか?",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 1 and in('出張', '行事', '会議', '修羅場',usr[-1])",
+          "next": [2]
+        },
+        {
+          "condition": "if actID = 1 and in('体調が思わしくな', '体調不良', '病', usr[-1])",
+          "next": [3]
+        },
+        {
+          "condition": "if actID = 1 and in('家族','父','母','甥','姪','息子','娘', '兄', '姉',usr[-1])",
+          "next": [4]
+        },
+        {
+          "condition": "if actID = 1 and in('金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済', usr[-1])",
+          "next": [5]
+        },
+        {
+          "condition": "if actID = 1 and in('医者', '体力','数値', '肝臓', '腎臓', usr[-1])",
+          "next": [6]
+        },
+        {
+          "condition": "if actID = 1 and in('飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無', usr[-1])",
+          "next": [7]
+        },
+        {
+          "condition": "if actID = 1 and topicTurn = 6",
+          "next": [9]
+        },
+        {
+          "condition": "if actID = 1",
+          "next": [8]
+        }
+        ]
+    },
+    {
+      "phase_id": 2,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "日付変更しますよ。みんな結構暇なんで落ち着いてからやりましょうよ。それならいいんじゃないですか?",
+          "qa_reply": "どういう理由で行けないんですか?",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 1 and in('業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー',usr[-1])",
+          "next": [1]
+        },
+        {
+          "condition": "if actID = 1 and in('体調が思わしくな', '体調不良', '病', usr[-1])",
+          "next": [3]
+        },
+        {
+          "condition": "if actID = 1 and in('家族','父','母','甥','姪','息子','娘', '兄', '姉',usr[-1])",
+          "next": [4]
+        },
+        {
+          "condition": "if actID = 1 and in('金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済', usr[-1])",
+          "next": [5]
+        },
+        {
+          "condition": "if actID = 1 and in('医者', '体力','数値', '肝臓', '腎臓', usr[-1])",
+          "next": [6]
+        },
+        {
+          "condition": "if actID = 1 and in('飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無', usr[-1])",
+          "next": [7]
+        },
+        {
+          "condition": "if actID = 1 and topicTurn = 6",
+          "next": [9]
+        },
+        {
+          "condition": "if actID = 1",
+          "next": [8]
+        }
+        ]
+    },
+    {
+      "phase_id": 3,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "それなら、延期しますよ。時間も余ってますし元気になられてからやりましょう。それなら参加できるんじゃないですか?",
+          "qa_reply": "何か参加できない理由があるんですか?",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 1 and in('業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー',usr[-1])",
+          "next": [1]
+        },
+        {
+          "condition": "if actID = 1 and in('出張', '行事', '会議', '修羅場',usr[-1])",
+          "next": [2]
+        },
+        {
+          "condition": "if actID = 1 and in('家族','父','母','甥','姪','息子','娘', '兄', '姉',usr[-1])",
+          "next": [4]
+        },
+        {
+          "condition": "if actID = 1 and in('金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済', usr[-1])",
+          "next": [5]
+        },
+        {
+          "condition": "if actID = 1 and in('医者', '体力','数値', '肝臓', '腎臓', usr[-1])",
+          "next": [6]
+        },
+        {
+          "condition": "if actID = 1 and in('飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無', usr[-1])",
+          "next": [7]
+        },
+        {
+          "condition": "if actID = 1 and topicTurn = 6",
+          "next": [9]
+        },
+        {
+          "condition": "if actID = 1",
+          "next": [8]
+        }
+        ]
+    },
+    {
+      "phase_id": 4,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "あー、そういう事なんですね。なら別の日に変更するのでやりましょうよ。これで参加できますね。",
+          "qa_reply": "飲み会、参加しましょうよ。",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 1 and in('業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー',usr[-1])",
+          "next": [1]
+        },
+        {
+          "condition": "if actID = 1 and in('出張', '行事', '会議', '修羅場',usr[-1])",
+          "next": [2]
+        },
+        {
+          "condition": "if actID = 1 and in('体調が思わしくな', '体調不良', '病', usr[-1])",
+          "next": [3]
+        },
+        {
+          "condition": "if actID = 1 and in('金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済', usr[-1])",
+          "next": [5]
+        },
+        {
+          "condition": "if actID = 1 and in('医者', '体力','数値', '肝臓', '腎臓', usr[-1])",
+          "next": [6]
+        },
+        {
+          "condition": "if actID = 1 and in('飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無', usr[-1])",
+          "next": [7]
+        },
+        {
+          "condition": "if actID = 1 and topicTurn = 6",
+          "next": [9]
+        },
+        {
+          "condition": "if actID = 1",
+          "next": [8]
+        }
+        ]
+    },
+    {
+      "phase_id": 5,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "まあ、基本的に今回は配達サービス使いますけど、嫌なら適当にスーパーでそろえて貰っても良いですし。これで拒む理由もないんじゃないですか?",
+          "qa_reply": "楽しみになってきたでしょ? 参加しましょう!",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 1 and in('業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー',usr[-1])",
+          "next": [1]
+        },
+        {
+          "condition": "if actID = 1 and in('出張', '行事', '会議', '修羅場',usr[-1])",
+          "next": [2]
+        },
+        {
+          "condition": "if actID = 1 and in('体調が思わしくな', '体調不良', '病', usr[-1])",
+          "next": [3]
+        },
+        {
+          "condition": "if actID = 1 and in('家族','父','母','甥','姪','息子','娘', '兄', '姉',usr[-1])",
+          "next": [4]
+        },
+        {
+          "condition": "if actID = 1 and in('医者', '体力','数値', '肝臓', '腎臓', usr[-1])",
+          "next": [6]
+        },
+        {
+          "condition": "if actID = 1 and in('飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無', usr[-1])",
+          "next": [7]
+        },
+        {
+          "condition": "if actID = 1 and topicTurn = 6",
+          "next": [9]
+        },
+        {
+          "condition": "if actID = 1",
+          "next": [8]
+        }
+        ]
+    },
+    {
+      "phase_id": 6,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "えー、昨日飲んだ話してたじゃないですか。あれなら期間空けますし。もしかして、何か他に理由があるんですか?",
+          "qa_reply": "もしかして、他に何か参加しない理由があるんじゃないですか?",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 1 and in('業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー',usr[-1])",
+          "next": [1]
+        },
+        {
+          "condition": "if actID = 1 and in('出張', '行事', '会議', '修羅場',usr[-1])",
+          "next": [2]
+        },
+        {
+          "condition": "if actID = 1 and in('体調が思わしくな', '体調不良', '病', usr[-1])",
+          "next": [3]
+        },
+        {
+          "condition": "if actID = 1 and in('家族','父','母','甥','姪','息子','娘', '兄', '姉',usr[-1])",
+          "next": [4]
+        },
+        {
+          "condition": "if actID = 1 and in('金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済', usr[-1])",
+          "next": [5]
+        },
+        {
+          "condition": "if actID = 1 and in('飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無', usr[-1])",
+          "next": [7]
+        },
+        {
+          "condition": "if actID = 1 and topicTurn = 6",
+          "next": [9]
+        },
+        {
+          "condition": "if actID = 1",
+          "next": [8]
+        }
+        ]
+    },
+    {
+      "phase_id": 7,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "いやいや、先輩今日また飲み会やりたいって話してたじゃないですか。...何か言いにくい理由があるんですか?",
+          "qa_reply": "不参加する何か言いにくい理由があるんですか?",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 1 and in('業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー',usr[-1])",
+          "next": [1]
+        },
+        {
+          "condition": "if actID = 1 and in('出張', '行事', '会議', '修羅場',usr[-1])",
+          "next": [2]
+        },
+        {
+          "condition": "if actID = 1 and in('体調が思わしくな', '体調不良', '病', usr[-1])",
+          "next": [3]
+        },
+        {
+          "condition": "if actID = 1 and in('家族','父','母','甥','姪','息子','娘', '兄', '姉',usr[-1])",
+          "next": [4]
+        },
+        {
+          "condition": "if actID = 1 and in('金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済', usr[-1])",
+          "next": [5]
+        },
+        {
+          "condition": "if actID = 1 and in('医者', '体力','数値', '肝臓', '腎臓', usr[-1])",
+          "next": [6]
+        },
+        {
+          "condition": "if actID = 1 and topicTurn = 6",
+          "next": [9]
+        },
+        {
+          "condition": "if actID = 1",
+          "next": [8]
+        }
+        ]
+    },
+    {
+      "phase_id": 8,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": ["本当ですか。他に何か隠してないですか?", "ええ、何か怪しいですよ。他に言いにくい理由でもあるんじゃないですか?","それは大した理由じゃないじゃないですか。他に何かあるんでしょ?"],
+          "qa_reply":["本当ですか。他に何か隠してないですか?", "ええ、何か怪しいですよ。他に言いにくい理由でもあるんじゃないですか?","それは大した理由じゃないじゃないですか。他に何かあるんでしょ?"] ,
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if actID = 1 and in('業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー',usr[-1])",
+          "next": [1]
+        },
+        {
+          "condition": "if actID = 1 and in('出張', '行事', '会議', '修羅場',usr[-1])",
+          "next": [2]
+        },
+        {
+          "condition": "if actID = 1 and in('体調が思わしくな', '体調不良', '病', usr[-1])",
+          "next": [3]
+        },
+        {
+          "condition": "if actID = 1 and in('家族','父','母','甥','姪','息子','娘', '兄', '姉',usr[-1])",
+          "next": [4]
+        },
+        {
+          "condition": "if actID = 1 and in('金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済', usr[-1])",
+          "next": [5]
+        },
+        {
+          "condition": "if actID = 1 and in('医者', '体力','数値', '肝臓', '腎臓', usr[-1])",
+          "next": [6]
+        },
+        {
+          "condition": "if actID = 1 and in('飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無', usr[-1])",
+          "next": [7]
+        },
+        {
+          "condition": "if actID = 1 and topicTurn = 6",
+          "next": [9]
+        },
+        {
+          "condition": "if actID = 1",
+          "next": [8]
+        }
+        ]
+    },
+    {
+      "phase_id": 9,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "いやいや、どうしたんですか。先輩何か今日変ですよ。...まさか人間関係の原因があるとかですか? ",
+          "qa_reply": "というか、どうしたんですか。先輩何か今日変ですよ。...まさか人間関係の原因があるとかですか?",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if phaseID = 1",
+          "next": [10]
+        }
+      ]
+    },
+    {
+      "phase_id": 10,
+      "condition": "if "
+    }
+  ]
+}
