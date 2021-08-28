@@ -1,0 +1,41 @@
+{
+  "qa_rule": {
+    "file": "qa.json"
+  },
+  "topic_rule": [
+    {
+      "topic_id": 0,
+      "file": "general.json",
+      "change_topic": [
+        {
+          "condition": "if in('小林')",
+          "next": 2
+        },
+        {
+          "condition": "if phase_id = 2",
+          "next": 1
+        }
+      ]
+    },
+    {
+      "topic_id": 1,
+      "file": "lead_kobayashi.json",
+      "change_topic": [
+        {
+          "condition": "if in('小林')",
+          "next": 2
+        }
+      ]
+    },
+    {
+      "topic_id": 2,
+      "file": "kobayashi.json",
+      "change_topic": [
+        {
+          "condition": "if False",
+          "next": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 {
-  "topic_id": 0,
   "phase": [
     {
       "phase_id": 0,
@@ -50,16 +49,6 @@
         "next": [2]
       }
     ]
-    }
-  ],
-  "next_topic": [
-    {
-      "condition": "if in('小林')",
-      "next": 2
-    },
-    {
-      "condition": "if phase_id = 2",
-      "next": 1
     }
   ]
 }
