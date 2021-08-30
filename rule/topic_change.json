@@ -12,7 +12,7 @@
           "next": 2
         },
         {
-          "condition": "if phase_id = 2",
+          "condition": "if phaseID = 2",
           "next": 1
         }
       ]

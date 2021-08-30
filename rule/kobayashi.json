@@ -12,7 +12,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 1",
+          "condition": "if actID = 1",
           "next": [1]
         }
       ]
@@ -44,7 +44,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 3",
+          "condition": "if actID = 3",
           "next": [2]
         }
       ]
@@ -54,7 +54,7 @@
       "act": [
         {
           "act_id": 0,
-          "condition": "if negative",
+          "condition": "if negative(usr[-1])",
           "reply": "でも、この前も盛り上がりましたし。今回もそういうことは忘れて楽しめるんじゃないですか?",
           "qa_reply": "そういう部分はありますけど、この前も盛り上がりましたし。今回もそういうところは忘れて楽しめるんじゃないですか?",
           "next": [1]
@@ -76,7 +76,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 3",
+          "condition": "if actID = 3",
           "next": [3]
         }
       ]
@@ -108,7 +108,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 3",
+          "condition": "if actID = 3",
           "next": [4]
         }
       ]
@@ -140,7 +140,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 3",
+          "condition": "if actID = 3",
           "next": [5]
         }
       ]
@@ -165,7 +165,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 2",
+          "condition": "if actID = 2",
           "next": [6]
         }
       ]
@@ -190,7 +190,7 @@
       ],
       "change_phase": [
         {
-          "condition":"if act_id = 2",
+          "condition":"if actID = 2",
           "next": [7]
         }
       ]

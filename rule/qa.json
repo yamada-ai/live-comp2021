@@ -11,13 +11,13 @@
         },
         {
           "act_id": 1,
-          "condition": "if who(usr[-1]) and topic_id(?) = 0",
+          "condition": "if who(usr[-1]) and topicID(?) = 0",
           "reply": "今のところ私と、佐藤、鈴木、高橋、渡辺、それに小林です。もしかして、このメンバーに何か不安があるんですか?",
           "next": [100]
         },
         {
           "act_id": 2,
-          "condition": "if who(usr[-1]) and topic_id(?) = 2",
+          "condition": "if who(usr[-1]) and topicID(?) = 2",
           "reply": "小林と私以外だと、佐藤、鈴木、高橋、渡辺ですね。小林だけとグループの中では感じ違いますし、盛り上がれそうですけどね。",
           "next": [101]
         },
@@ -66,19 +66,19 @@
       ],
       "into_phase": [
         {
-          "condition": "if act_id = 100",
+          "condition": "if actID = 100",
           "next": 0
         },
         {
-          "condition": "if act_id = 101",
+          "condition": "if actID = 101",
           "next": 1
         },
         {
-          "condition": "if act_id = 102",
+          "condition": "if actID = 102",
           "next": 2
         },
         {
-          "condition": "if act_id = 103",
+          "condition": "if actID = 103",
           "next": 3
         }
       ]
@@ -118,7 +118,7 @@
       "act": [
         {
           "act_id": 0,
-          "condition": "if negative",
+          "condition": "if negative(usr[-1])",
           "reply": "医療従事者も頑張ってくれていますし、今回はオンラインでやりましょうよ。",
           "next": [2]
         },
@@ -130,7 +130,7 @@
         },
         {
           "act_id": 2,
-          "condition": "if negative",
+          "condition": "if negative(usr[-1])",
           "reply": "まあまあ、そこはもう違うものとして今回はオンライン楽しみましょうよ。話戻しますよ。",
           "next": [99]
         },
@@ -147,7 +147,7 @@
       "act": [
         {
           "act_id": 0,
-          "condition": "if negative and in(['つまみ', '肴', '酒のあて', '酒の友'], usr[-2])",
+          "condition": "if negative(usr[-1]) and in(['つまみ', '肴', '酒のあて', '酒の友'], usr[-2])",
           "reply": "そうなんですね...。あ、お酒も頼みますけどそっちは何か好きなものありますか?",
           "next": [4,5]
         },
@@ -159,7 +159,7 @@
         },
         {
           "act_id": 2,
-          "condition": "if negative",
+          "condition": "if negative(usr[-1])",
           "reply": "そうなんですね...。あ、おつまみも頼みますけどそっちは何か好きなものありますか?",
           "next": [4,5]
         },
@@ -171,7 +171,7 @@
         },
         {
           "act_id": 4,
-          "condition": "if negative",
+          "condition": "if negative(usr[-1])",
           "reply": "そうですか...。まあ、雰囲気でも飲み会って楽しいですしね。あ、ごめんなさい。話そらしちゃいました。戻しますね。",
           "next": [99]
         },

@@ -27,7 +27,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 3",
+          "condition": "if actID = 3",
           "next": 1
         }
       ]
@@ -45,7 +45,7 @@
       ],
     "change_phase": [
       {
-        "condition": "if act_id = 1",
+        "condition": "if actID = 1",
         "next": 2
       }
     ]

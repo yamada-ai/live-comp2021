@@ -5,7 +5,7 @@
       "act": [
         {
           "act_id": 0,
-          "condition": "if positive",
+          "condition": "if positive(usr[-1])",
           "reply": "じゃあ、参加していただけますよね?",
           "qa_reply": "楽しそうでしょ? 参加してもらえますか?",
           "next": [2]
