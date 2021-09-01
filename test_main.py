@@ -13,7 +13,24 @@ class Controller:
 
         self._load_rules(rule_path)
         self.ID_history = []
-        
+        self.user = []
+        self.sytem = []
+    
+    def reply(self, context):
+        # ユーザ発話を追加
+        self.user.append(context[-1])
+        # topic分類
+
+        # 決定した topic のルールで発話選択
+
+
+
+        return None
+
+    def persing(self, code):
+        print("code: {0}".format(code))
+
+        print(self.parser.parsing(code))  
     
     # ルールの読み込み
     def _load_rules(self, rule_path):
@@ -27,16 +44,16 @@ class Controller:
                 with open(rule_path+fname, "r") as f:
                     topic_rule = json.load(f)
     
-                    
+
     
-
-
+    
 if __name__ == "__main__":
-    print("start")
+    # print("start")
     code = 'if in( "うざい", usr[-1] )'
     # code = "if "
-
     rule_path = "./rule/"
 
     controller = Controller(rule_path)
-    print(controller.parser.parsing(code))
+
+    controller.persing(code)
+    # print(controller.parser.parsing(code))

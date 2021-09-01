@@ -55,7 +55,7 @@ class CulcParser:
         
     def parsing(self, code):
         res = self.LA.lexical_analyze(code)
-        self.LA.display_tokens()
+        # self.LA.display_tokens()
         if res < 0:
             print("failure Lexical Analyze")
             return -1
