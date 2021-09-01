@@ -1,0 +1,193 @@
+{
+  "qa_init_phase":
+    {
+      "act": [
+        {
+          "act_id": 1,
+          "condition": "if who(usr[-1]) and topicID = 0",
+          "reply": "今のところ私と、佐藤、鈴木、高橋、渡辺、それに小林です。もしかして、このメンバーに何か不安があるんですか?",
+          "next": [100]
+        },
+        {
+          "act_id": 2,
+          "condition": "if who(usr[-1]) and topicID = 2",
+          "reply": "小林と私以外だと、佐藤、鈴木、高橋、渡辺ですね。小林だけとグループの中では感じ違いますし、盛り上がれそうですけどね。",
+          "next": [101]
+        },
+        {
+          "act_id": 4,
+          "condition": "if yn(usr[-1]) and in(['居酒屋', 'お店','スナック', '飲み屋', '酒場', 'バー', '外'], usr[-1])",
+          "reply": "流石にコロナも流行続いてますし、家族のワクチンもまだなので店では厳しいかなと。",
+          "next": [102]
+        },
+        {
+          "act_id": 6,
+          "condition": "if (what(usr[-1]) or how(usr[-1])) and in(['お酒', 'アルコール', '酒類', '日本酒'], usr[-1])",
+          "reply": "そこら辺は自宅に届けてくれるサービスを使うつもりです。先輩はお酒だとどれが好きでしたっけ? ",
+          "next": [103]
+        },
+        {
+          "act_id": 7,
+          "condition": "if (what(usr[-1]) or how(usr[-1])) and in(['つまみ', '肴', '酒のあて', '酒の友'], usr[-1]) ",
+          "reply": "その辺りは自宅に届けてくれるサービスを使うつもりです。先輩はおつまみだとどれが好きでしたっけ? ",
+          "next": [103]
+        },
+        {
+          "act_id": 8,
+          "condition": "if when(usr[-1])",
+          "reply": "家族いるやつもいるので夜の7時から9時の2時間ですね。ちょっと長いですかね?",
+          "next": [104]
+        },
+        {
+          "act_id": 10,
+          "condition": "if (why(usr[-1]) or what(usr[-1]) or who(usr[-1]) or which(usr[-1]) or how(usr[-1]) or yn(usr[-1])) and not in('小林', usr[-1])",
+          "reply": [
+            "その辺りは割とアバウトですね。 話戻しますよ。",
+            "どうだったかな? そこはあんまり頭になかったですね。じゃあ、続けますね。",
+            "んー、その辺は他の誰かが決める話だった気がします。ざっくりですいません。話戻しますね。"
+          ],
+          "next": [98]
+        }
+      ],
+      "into_phase": [
+        {
+          "condition": "if actID = 100",
+          "next": 0
+        },
+        {
+          "condition": "if actID = 101",
+          "next": 1
+        },
+        {
+          "condition": "if actID = 102",
+          "next": 2
+        },
+        {
+          "condition": "if actID = 103",
+          "next": 3
+        },
+        {
+          "condition": "if actID = 104",
+          "next": 4
+        }
+      ]
+    },
+  "phase":[
+    {
+      "phase_id": 0,
+      "act": [
+        {
+          "comment": "小林の話が出なかった場合何となくの返答をして軸に戻る。",
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "ええ、本当ですか。ちょっと引っかかりますよ。一旦話先に進めますけど。",
+          "next": [99]
+        }
+      ]
+    },
+    {
+      "phase_id": 1,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "あー。でも、実際結構同期と話ているときは色々違いますよ。それなら一緒に飲めませんか?",
+          "next": [1]
+        },
+        {
+          "act_id": 1,
+          "condition": "if True",
+          "reply": "難しいですね。",
+          "next": [99]
+        }
+      ]
+    },
+    {
+      "phase_id": 2,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if negative(usr[-1])",
+          "reply": "医療従事者も頑張ってくれていますし、今回はオンラインでやりましょうよ。",
+          "next": [2, 3]
+        },
+        {
+          "act_id": 1,
+          "condition": "if True",
+          "reply": "はい、じゃあ話続けますね。",
+          "next": [98]
+        },
+        {
+          "act_id": 2,
+          "condition": "if negative(usr[-1])",
+          "reply": "まあまあ、そこはもう違うものとして今回はオンライン楽しみましょうよ。話戻しますよ。",
+          "next": [99]
+        },
+        {
+          "act_id": 3,
+          "condition": "if True",
+          "reply": "分かってもらえて良かったです。話続けますね。",
+          "next": [99]
+        }
+      ]
+    },
+    {
+      "phase_id": 3,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if negative(usr[-1]) and in(['つまみ', '肴', '酒のあて', '酒の友'], usr[-2])",
+          "reply": "そうなんですね...。あ、お酒も頼みますけどそっちは何か好きなものありますか?",
+          "next": [4,5]
+        },
+        {
+          "act_id": 1,
+          "condition": "if in(['つまみ', '肴', '酒のあて', '酒の友'], usr[-2])",
+          "reply": "ああ、あれは合いますよね。お酒も頼むわけですがそっちは何が良いとかありますか?",
+          "next": [4,5]
+        },
+        {
+          "act_id": 2,
+          "condition": "if negative(usr[-1])",
+          "reply": "そうなんですね...。あ、おつまみも頼みますけどそっちは何か好きなものありますか?",
+          "next": [4,5]
+        },
+        {
+          "act_id": 3,
+          "condition": "True",
+          "reply": "ああ、あれは合いますよね。おつまみも頼むわけですがそっちは何が良いとかありますか?",
+          "next": [4,5]
+        },
+        {
+          "act_id": 4,
+          "condition": "if negative(usr[-1])",
+          "reply": "そうですか...。まあ、雰囲気でも飲み会って楽しいですしね。あ、ごめんなさい。話そらしちゃいました。戻しますね。",
+          "next": [99]
+        },
+        {
+          "act_id": 5,
+          "condition": "if True",
+          "reply": "あー、いいですね! 是非頼みましょう。あ、ごめんなさい。話それちゃってましたね。",
+          "next": [99]
+        }
+      ]
+    },
+    {
+      "phase_id": 4,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if positive(usr[-1])",
+          "reply": "了解しました。それはともかくとしてですよ、",
+          "next": [98]
+        },
+        {
+          "act_id": 1,
+          "condition": "if True",
+          "reply": "じゃあ、先輩の参加決定したらその辺りも相談しましょう。それはともかくとしてですね、",
+          "next": [98]
+        }
+      ]
+    }
+  ]
+}
