@@ -33,8 +33,14 @@
           "next": [103]
         },
         {
+          "act_id": 8,
+          "condition": "if when(usr[-1])",
+          "reply": "家族いるやつもいるので夜の7時から9時の2時間ですね。ちょっと長いですかね?",
+          "next": [104]
+        },
+        {
           "act_id": 10,
-          "condition": "if (why(usr[-1]) or when(usr[-1]) or what(usr[-1]) or who(usr[-1]) or which(usr[-1]) or how(usr[-1]) or yn(usr[-1])) and not in('小林', usr[-1])",
+          "condition": "if (why(usr[-1]) or what(usr[-1]) or who(usr[-1]) or which(usr[-1]) or how(usr[-1]) or yn(usr[-1])) and not in('小林', usr[-1])",
           "reply": [
             "その辺りは割とアバウトですね。 話戻しますよ。",
             "どうだったかな? そこはあんまり頭になかったですね。じゃあ、続けますね。",
@@ -59,6 +65,10 @@
         {
           "condition": "if actID = 103",
           "next": 3
+        },
+        {
+          "condition": "if actID = 104",
+          "next": 4
         }
       ]
     },
@@ -116,7 +126,7 @@
         {
           "act_id": 3,
           "condition": "if True",
-          "reply": "分かってもらえて良かったです。話戻しますね。",
+          "reply": "分かってもらえて良かったです。話続けますね。",
           "next": [99]
         }
       ]
@@ -157,8 +167,25 @@
         {
           "act_id": 5,
           "condition": "if True",
-          "reply": "あー、いいですね! 是非頼みましょう。あ、ごめんなさい。話そらしちゃいました。戻しますね。",
+          "reply": "あー、いいですね! 是非頼みましょう。あ、ごめんなさい。話それちゃってましたね。",
           "next": [99]
+        }
+      ]
+    },
+    {
+      "phase_id": 4,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if positive(usr[-1])",
+          "reply": "了解しました。それはともかくとしてですよ、",
+          "next": [98]
+        },
+        {
+          "act_id": 1,
+          "condition": "if True",
+          "reply": "じゃあ、先輩の参加決定したらその辺りも相談しましょう。それはともかくとしてですね、",
+          "next": [98]
         }
       ]
     }
