@@ -447,6 +447,114 @@
           "next": [10]
         }
       ]
+    },
+    {
+      "phase_id": 11,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "それを聞いて安心しました。でも、そうなると単純にテンションが乗らないって感じですか?",
+          "qa_reply": "もしかして、来ない理由って単純にテンションが乗らないとかですか?",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if act_id = 1",
+          "next": [12]
+        }
+      ]
+    },
+    {
+      "phase_id": 12,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "うーん。でもやっぱり、先輩にはみんな来て欲しいんですよねー。どうしましょう?",
+          "qa_reply": "うーん。でもやっぱり、先輩にはみんな来て欲しいんですよねー。どうしましょう?",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if act_id = 1",
+          "next": [13]
+        }
+      ]
+    },
+    {
+      "phase_id": 13,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "いやあ、まあそうですね。上手くいきませんね。",
+          "qa_reply": "何というかやっぱり飲み会に先輩がいないと駄目なんですよね。",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if act_id = 1",
+          "next": [14]
+        }
+      ]
+    },
+    {
+      "phase_id": 14,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "いやあ、まあそうですね。上手くいきませんね。",
+          "qa_reply": "何というかやっぱり飲み会に先輩がいないと駄目なんですよね。",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if act_id = 1",
+          "next": [15]
+        }
+      ]
+    },
+    {
+      "phase_id": 15,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "みんな目を輝かして先輩誘おうって盛り上がったんですよね。",
+          "qa_reply" : "みんな目を輝かして飲み会に先輩誘おうって盛り上がったんですよね。",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if act_id = 1",
+          "next": [16]
+        }
+      ]
+    },
+    {
+      "phase_id": 16,
+      "act": [
+        {
+          "act_id": 0,
+          "condition": "if True",
+          "reply": "あ、でも当日になってみればわかりませんよ。テンションの問題なら。",
+          "qa_reply": "あ、そうですよ。当日になってみればわかりませんよ。テンションの問題なら。",
+          "next": [1]
+        }
+      ],
+      "change_phase": [
+        {
+          "condition": "if False",
+          "next": [16]
+        }
+      ]
     }
   ]
 }
