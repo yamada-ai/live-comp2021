@@ -8,7 +8,7 @@
       "file_name": "general.json",
       "change_topic": [
         {
-          "condition": "if in('小林')",
+          "condition": "if in(['小林'], usr[-1])",
           "next": 2
         },
         {
@@ -22,7 +22,7 @@
       "file_name": "lead_kobayashi.json",
       "change_topic": [
         {
-          "condition": "if in('小林')",
+          "condition": "if in(['小林'], usr[-1])",
           "next": 2
         }
       ]
@@ -37,5 +37,6 @@
         }
       ]
     }
-  ]
+  ],
+  "last_reply": "まあ、少しですけどまだ時間もありますし、もうちょっと考えておいてくださいよ。また連絡しますから。"
 }
