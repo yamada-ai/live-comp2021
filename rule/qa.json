@@ -34,7 +34,7 @@
         },
         {
           "act_id": 8,
-          "condition": "if when(usr[-1])",
+          "condition": "if when(usr[-1]) or (how(usr[-1]) and in(['どのくらいやる', 'どれくらいやる', '時間'], usr[-1]))",
           "reply": "家族いるやつもいるので夜の7時から9時の2時間ですね。ちょっと長いですかね?",
           "next": [104]
         },
