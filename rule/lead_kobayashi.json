@@ -20,7 +20,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 2 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
+          "condition": "if (actID = 0 or actID = 1) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         }
       ]
@@ -38,39 +38,39 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
+          "condition": "if actID = 0 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
           "next": [2]
         },
         {
-          "condition": "if actID = 1 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if actID = 0 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
           "next": [3]
         },
         {
-          "condition": "if actID = 1 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
+          "condition": "if actID = 0 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
           "next": [4]
         },
         {
-          "condition": "if actID = 1 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
+          "condition": "if actID = 0 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
           "next": [5]
         },
         {
-          "condition": "if actID = 1 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
+          "condition": "if actID = 0 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
           "next": [6]
         },
         {
-          "condition": "if actID = 1 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
+          "condition": "if actID = 0 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
         },
         {
-          "condition": "if actID = 1 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
+          "condition": "if actID = 0 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
           "next": [11]
         },
         {
-          "condition": "if actID = 1 and topicTurn = 6",
+          "condition": "if actID = 0 and topicTurn = 6",
           "next": [9]
         },
         {
-          "condition": "if actID = 1",
+          "condition": "if actID = 0",
           "next": [8]
         }
         ]
@@ -88,39 +88,39 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
+          "condition": "if actID = 0 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
         {
-          "condition": "if actID = 1 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if actID = 0 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
           "next": [3]
         },
         {
-          "condition": "if actID = 1 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
+          "condition": "if actID = 0 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
           "next": [4]
         },
         {
-          "condition": "if actID = 1 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
+          "condition": "if actID = 0 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
           "next": [5]
         },
         {
-          "condition": "if actID = 1 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
+          "condition": "if actID = 0 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
           "next": [6]
         },
         {
-          "condition": "if actID = 1 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
+          "condition": "if actID = 0 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
         },
         {
-          "condition": "if actID = 1 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
+          "condition": "if actID = 0 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
           "next": [11]
         },
         {
-          "condition": "if actID = 1 and topicTurn = 6",
+          "condition": "if actID = 0 and topicTurn = 6",
           "next": [9]
         },
         {
-          "condition": "if actID = 1",
+          "condition": "if actID = 0",
           "next": [8]
         }
         ]
@@ -138,39 +138,39 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
+          "condition": "if actID = 0 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
         {
-          "condition": "if actID = 1 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
+          "condition": "if actID = 0 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
           "next": [2]
         },
         {
-          "condition": "if actID = 1 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
+          "condition": "if actID = 0 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
           "next": [4]
         },
         {
-          "condition": "if actID = 1 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
+          "condition": "if actID = 0 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
           "next": [5]
         },
         {
-          "condition": "if actID = 1 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
+          "condition": "if actID = 0 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
           "next": [6]
         },
         {
-          "condition": "if actID = 1 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
+          "condition": "if actID = 0 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
         },
         {
-          "condition": "if actID = 1 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
+          "condition": "if actID = 0 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
           "next": [11]
         },
         {
-          "condition": "if actID = 1 and topicTurn = 6",
+          "condition": "if actID = 0 and topicTurn = 6",
           "next": [9]
         },
         {
-          "condition": "if actID = 1",
+          "condition": "if actID = 0",
           "next": [8]
         }
         ]
@@ -188,39 +188,39 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
+          "condition": "if actID = 0 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
         {
-          "condition": "if actID = 1 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
+          "condition": "if actID = 0 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
           "next": [2]
         },
         {
-          "condition": "if actID = 1 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if actID = 0 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
           "next": [3]
         },
         {
-          "condition": "if actID = 1 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
+          "condition": "if actID = 0 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
           "next": [5]
         },
         {
-          "condition": "if actID = 1 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
+          "condition": "if actID = 0 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
           "next": [6]
         },
         {
-          "condition": "if actID = 1 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
+          "condition": "if actID = 0 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
         },
         {
-          "condition": "if actID = 1 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
+          "condition": "if actID = 0 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
           "next": [11]
         },
         {
-          "condition": "if actID = 1 and topicTurn = 6",
+          "condition": "if actID = 0 and topicTurn = 6",
           "next": [9]
         },
         {
-          "condition": "if actID = 1",
+          "condition": "if actID = 0",
           "next": [8]
         }
         ]
@@ -238,39 +238,39 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
+          "condition": "if actID = 0 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
         {
-          "condition": "if actID = 1 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
+          "condition": "if actID = 0 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
           "next": [2]
         },
         {
-          "condition": "if actID = 1 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if actID = 0 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
           "next": [3]
         },
         {
-          "condition": "if actID = 1 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
+          "condition": "if actID = 0 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
           "next": [4]
         },
         {
-          "condition": "if actID = 1 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
+          "condition": "if actID = 0 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
           "next": [6]
         },
         {
-          "condition": "if actID = 1 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
+          "condition": "if actID = 0 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
         },
         {
-          "condition": "if actID = 1 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
+          "condition": "if actID = 0 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
           "next": [11]
         },
         {
-          "condition": "if actID = 1 and topicTurn = 6",
+          "condition": "if actID = 0 and topicTurn = 6",
           "next": [9]
         },
         {
-          "condition": "if actID = 1",
+          "condition": "if actID = 0",
           "next": [8]
         }
         ]
@@ -288,39 +288,39 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
+          "condition": "if actID = 0 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
         {
-          "condition": "if actID = 1 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
+          "condition": "if actID = 0 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
           "next": [2]
         },
         {
-          "condition": "if actID = 1 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if actID = 0 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
           "next": [3]
         },
         {
-          "condition": "if actID = 1 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
+          "condition": "if actID = 0 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
           "next": [4]
         },
         {
-          "condition": "if actID = 1 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
+          "condition": "if actID = 0 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
           "next": [5]
         },
         {
-          "condition": "if actID = 1 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
+          "condition": "if actID = 0 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
         },
         {
-          "condition": "if actID = 1 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
+          "condition": "if actID = 0 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
           "next": [11]
         },
         {
-          "condition": "if actID = 1 and topicTurn = 6",
+          "condition": "if actID = 0 and topicTurn = 6",
           "next": [9]
         },
         {
-          "condition": "if actID = 1",
+          "condition": "if actID = 0",
           "next": [8]
         }
         ]
@@ -338,39 +338,39 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
+          "condition": "if actID = 0 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
         {
-          "condition": "if actID = 1 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
+          "condition": "if actID = 0 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
           "next": [2]
         },
         {
-          "condition": "if actID = 1 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if actID = 0 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
           "next": [3]
         },
         {
-          "condition": "if actID = 1 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
+          "condition": "if actID = 0 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
           "next": [4]
         },
         {
-          "condition": "if actID = 1 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
+          "condition": "if actID = 0 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
           "next": [5]
         },
         {
-          "condition": "if actID = 1 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
+          "condition": "if actID = 0 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
           "next": [6]
         },
         {
-          "condition": "if actID = 1 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
+          "condition": "if actID = 0 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
           "next": [11]
         },
         {
-          "condition": "if actID = 1 and topicTurn = 6",
+          "condition": "if actID = 0 and topicTurn = 6",
           "next": [9]
         },
         {
-          "condition": "if actID = 1",
+          "condition": "if actID = 0",
           "next": [8]
         }
         ]
@@ -388,43 +388,43 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
+          "condition": "if actID = 0 and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
         {
-          "condition": "if actID = 1 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
+          "condition": "if actID = 0 and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
           "next": [2]
         },
         {
-          "condition": "if actID = 1 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if actID = 0 and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
           "next": [3]
         },
         {
-          "condition": "if actID = 1 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
+          "condition": "if actID = 0 and in(['家族','父','母','甥','姪','息子','娘', '兄', '姉'],usr[-1])",
           "next": [4]
         },
         {
-          "condition": "if actID = 1 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
+          "condition": "if actID = 0 and in(['金','キャッシュ', '財布', '損', '割高','高い','高額', '高価', '経済'], usr[-1])",
           "next": [5]
         },
         {
-          "condition": "if actID = 1 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
+          "condition": "if actID = 0 and in(['医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
           "next": [6]
         },
         {
-          "condition": "if actID = 1 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
+          "condition": "if actID = 0 and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
         },
         {
-          "condition": "if actID = 1 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
+          "condition": "if actID = 0 and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ'], usr[-1]))",
           "next": [11]
         },
         {
-          "condition": "if actID = 1 and topicTurn = 6",
+          "condition": "if actID = 0 and topicTurn = 6",
           "next": [9]
         },
         {
-          "condition": "if actID = 1",
+          "condition": "if actID = 0",
           "next": [8]
         }
         ]
@@ -453,11 +453,11 @@
       ],
       "change_phase": [
         {
-          "condition": "if phaseID = 1 and in(['いや','違', 'ない', '異', 'いいえ', 'イイエ'], usr[-1])",
+          "condition": "if phaseID = 0 and in(['いや','違', 'ない', '異', 'いいえ', 'イイエ'], usr[-1])",
           "next": [11]
         },
         {
-          "condition": "if phaseID = 1",
+          "condition": "if phaseID = 0",
           "next": [10]
         }
       ]
@@ -504,7 +504,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 1",
+          "condition": "if act_id = 0",
           "next": [12]
         }
       ]
@@ -522,7 +522,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 1",
+          "condition": "if act_id = 0",
           "next": [13]
         }
       ]
@@ -540,7 +540,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 1",
+          "condition": "if act_id = 0",
           "next": [14]
         }
       ]
@@ -558,7 +558,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 1",
+          "condition": "if act_id = 0",
           "next": [15]
         }
       ]
@@ -576,7 +576,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if act_id = 1",
+          "condition": "if act_id = 0",
           "next": [16]
         }
       ]
