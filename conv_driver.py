@@ -26,12 +26,15 @@ if __name__ == "__main__":
         if i==0:
             sys_utterance(init_utt, i+1)
             # user_utterance("嫌だ", i+1)
-            utterance = wait_user_utterance(i)
+            utterance = wait_user_utterance(i+1)
             context.append(init_utt)
             context.append(utterance)
         else:
-            sys_utterance("システム", i+1)
-            utterance = wait_user_utterance(i)
+            utt = controller.reply(context)
+            sys_utterance(utt, i+1)
+            utterance = wait_user_utterance(i+1)
+            context.append(utt)
+            context.append(utterance)
         
         # コントローラーに context の情報をセット
         print()

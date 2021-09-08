@@ -36,7 +36,7 @@ class Token:
 
 class Tokenizer:
     def __init__(self) -> None:
-        self.keywords = "if and or not True False count in re topicID phaseID actID topicTurn phaseTurn usr".split()
+        self.keywords = "if and or not True False count in re topicID phaseID actID topicTurn phaseTurn usr yn who why what when where how".split()
         self.symbols = "+ - * / = <= >= < > ( ) : , [ ]".split()
         self.TTOKEN = "TNUMBER TSTRING TSKIP".split()
 
@@ -128,13 +128,14 @@ class Tokenizer:
             return self.TNUM_dict["TNUMBER"], buffer
 
         # plain string
-        elif c == '"':
+        # elif c == '"':
+        elif c == "'":
             while 1:
                 c = self._next_char()
                 if self._is_end_code():
-                    print("{0} of the end is required".format('"'))
+                    print("{0} of the end is required".format("'"))
                     return -1, None
-                elif c == '"':
+                elif c == "'":
                     c = self._next_char()
                     return self.TNUM_dict["TSTRING"], buffer
                 else:
@@ -180,12 +181,12 @@ class Tokenizer:
         for token in self.tokens:
             print(token)
 
-# if __name__ == "__main__":
-#     print("start")
-#     code = '[2 ,3 ,4]'
-#     # code = "abcdefghijk"
+if __name__ == "__main__":
+    print("start")
+    code = "if in('時間はな', '忙し', '大変', '時間がな', 'ない', usr[-1])"
+    # code = "abcdefghijk"
 
-#     LA = Tokenizer()
-#     print(LA.TNUM_dict)
-#     LA.lexical_analyze(code)
-#     LA.display_tokens()
+    LA = Tokenizer()
+    print(LA.TNUM_dict)
+    LA.lexical_analyze(code)
+    LA.display_tokens()

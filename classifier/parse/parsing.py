@@ -39,7 +39,7 @@ class CulcParser:
         self.var_init()
 
         self.constant_t = set( map(self.TNUM_func,  "TNUMBER TSTRING True False [".split() + self.var_l ) )
-        self.func_name = set( map(self.TNUM_func, "in count re".split()) )
+        self.func_name = set( map(self.TNUM_func, "in count yn who why what when where how".split()) )
         self.multi_op = set( map( self.TNUM_func, "* / and".split() ) )
         self.add_op = set( map( self.TNUM_func, "+ - or".split() ))
         self.relation_op = set( map(self.TNUM_func, "= < > <= >=".split()) )
@@ -51,7 +51,18 @@ class CulcParser:
         self.var_l = "topicID phaseID actID topicTurn phaseTurn usr".split()
         self.var_id = set( map(self.TNUM_func, self.var_l) )
         self.var = dict( zip(self.var_l, [0]*len(self.var_l) ) )
-        self.var["usr"] = ["しね", "消えろ", "うざい"]
+        self.var["usr"] = []
+    
+    def set_usr(self, usr):
+        self.var["usr"] = usr
+    
+    def set_ID(self, current_ID):
+        self.var["topicID"] = current_ID["topic"]
+        self.var["phaseID"] = current_ID["phase"]
+        self.var["actID"] = current_ID["act"]
+    
+    def set_act_temp(self, tmp_act_id):
+        self.var["actID"] = tmp_act_id
         
     def parsing(self, code):
         res = self.LA.lexical_analyze(code)
