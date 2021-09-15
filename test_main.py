@@ -4,13 +4,17 @@
 # from classifier import parse
 # import classifier
 from classifier.parse.parsing import CulcParser
+from classifier.classify import Classifier
 import os
 import json
 
 class Controller:
     def __init__(self, rule_path) -> None:
         self.parser = CulcParser()
-
+        self.classifier = Classifier(model_path="./classifier/models/", F_path="./classifier/X_y_data/")
+        self.classifier.load_F("typeClassify_F2.dill")
+        self.classifier.load_model("typeClassify_M2.pickle")
+        self.parser.set_classifier(self.classifier)
         self._load_rules(rule_path)
 
         self.stateID_history = []
@@ -26,6 +30,7 @@ class Controller:
         }
         self.next_actID = []
         self.set_current_state()
+
         # self.update_next(self.current_state)
     
     # def check_change_rule(self, context):
@@ -149,13 +154,13 @@ class Controller:
     
 if __name__ == "__main__":
     # print("start")
-    code = 'if in( "うざい", "ぶっ殺すよ" )'
+    code = "if yn( 'それは正しいものですか？')"
     # code = "if "
     rule_path = "./rule/"
 
     controller = Controller(rule_path)
 
-    print(controller.reply(["湯川先輩お疲れ様です! 今お時間いいですか?", "いいよ"]))
+    # print(controller.reply(["湯川先輩お疲れ様です! 今お時間いいですか?", "いいよ"]))
     
     # controller.persing(code)
-    # print(controller.parser.parsing(code))
+    print(controller.parser.parsing(code))

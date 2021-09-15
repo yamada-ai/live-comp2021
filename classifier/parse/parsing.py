@@ -33,7 +33,7 @@ class Ltype(IntEnum):
 class CulcParser:
 
     def __init__(self) -> None:
-        from .classify import Classifier
+        # from .classify import Classifier
         self.LA = Tokenizer()
         self.TNUM_func = lambda n: self.tname2TNUM(n)
         self.var_init()
@@ -45,7 +45,7 @@ class CulcParser:
         self.relation_op = set( map(self.TNUM_func, "= < > <= >=".split()) )
         self.val_stack = Stack()
 
-        self.classifier = Classifier()
+        # self.classifier = Classifier()
 
     def var_init(self):
         self.var_l = "topicID phaseID actID topicTurn phaseTurn usr".split()
@@ -63,6 +63,9 @@ class CulcParser:
     
     def set_act_temp(self, tmp_act_id):
         self.var["actID"] = tmp_act_id
+    
+    def set_classifier(self, cls_):
+        self.classifier = cls_
         
     def parsing(self, code):
         res = self.LA.lexical_analyze(code)
@@ -264,7 +267,9 @@ class CulcParser:
         elif self.token in self.func_name:
             if self.token == self.tname2TNUM("in"):
                 result = self._in()
-            
+            else:
+                result = self._classify(self.token.surface)
+
             return result
         
         else:
@@ -460,6 +465,28 @@ class CulcParser:
                     result = True
         return result
 
+    def _classify(self, mode):
+        self.token = self.next_token()
+        if self.token != self.tname2TNUM("("):
+            print("cls : '(' is required")
+            return -1
+        
+        self.token = self.next_token()
+        arg1_t = self.expression()
+
+        if arg1_t != Ltype.STRING:
+            print("arg type is requred String, but got type was not")
+            return -1
+
+        arg1 = self.val_stack.pop()
+
+        if self.token != self.tname2TNUM(")"):
+            print("in : ')' is required")
+            return -1
+        
+        self.val_stack.push(self.classifier.predict_type(mode, arg1))
+
+        return Ltype.BOOL
 
 if __name__ == "__main__":
     print("start")

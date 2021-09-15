@@ -1,2 +1,4 @@
 classifier/__pycache__
 classifier/train/__pycache__
+classifier/models/
+classifier/X_y_data/

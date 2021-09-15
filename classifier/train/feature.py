@@ -4,7 +4,7 @@ import sys
 from spacy.util import normalize_slice
 sys.dont_write_bytecode = True
 sys.path.append('../')
-from tools import preprocess
+from ..tool import preprocess
 
 import pprint
 import random
