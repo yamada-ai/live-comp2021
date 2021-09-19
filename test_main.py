@@ -75,7 +75,7 @@ class Controller:
             for rule in change_phase_rule:
                 if self.parser.parsing(rule["condition"]):
                     self.current_ID["act"] = 0
-                    self.current_ID["phase"] = rule["next"][0]
+                    self.current_ID["phase"] = rule["next"]
                     # print(self.current_ID)
         print(self.current_ID)
         print(self.next_actID)
