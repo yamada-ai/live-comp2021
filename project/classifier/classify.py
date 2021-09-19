@@ -6,14 +6,15 @@ import sys
 sys.path.append('../')
 # from .tools.maneger import DataManager
 # from .tools.preprocess import Preprocessor
-from .train import feature
-from .tool import maneger
-from .tool import preprocess
+from project.classifier.train import feature
+from project.classifier.tool import maneger
+from project.classifier.tool import preprocess
 # from train.feature import Feature
 
 sys.modules["feature"] = feature
 sys.modules["manager"] = maneger
 sys.modules["preprocess"] = preprocess
+
 class Classifier:
     def __init__(self, model_path="./models/", F_path="./X_y_data/") -> None:
         self.model_path = model_path

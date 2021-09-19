@@ -1,4 +1,4 @@
-from test_main import Controller
+from project.controller import Controller
 
 def sys_utterance(text, turn):
     print("sys[{0}]: {1}".format(turn, text))
@@ -14,7 +14,7 @@ if __name__ == "__main__":
     print("start conversation")
 
     init_utt = "湯川先輩お疲れ様です! 今お時間いいですか?"
-    rule_path = "./rule/"
+    rule_path = "./project/rule/"
     controller = Controller(rule_path)
 
     turn_limit = 16
@@ -38,4 +38,3 @@ if __name__ == "__main__":
         
         # コントローラーに context の情報をセット
         print()
-

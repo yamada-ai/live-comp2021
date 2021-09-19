@@ -1,6 +1,5 @@
-
-from .lexical import Tokenizer
-from .lexical import Token
+from project.classifier.parse.lexical import Tokenizer
+from project.classifier.parse.lexical import Token
 
 from enum import IntEnum, auto
 

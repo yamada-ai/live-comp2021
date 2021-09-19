@@ -1,4 +1,4 @@
-classifier/__pycache__
-classifier/train/__pycache__
-classifier/models/
-classifier/X_y_data/
+project/classifier/__pycache__
+project/classifier/train/__pycache__
+project/classifier/models/
+project/classifier/X_y_data/

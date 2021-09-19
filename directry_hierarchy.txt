@@ -1,7 +1,7 @@
 live-comp2021/
 ├── README.md 
 ├── requirements.txt
-├── live-comp2021/
+├── project/
 │  ├── __init__.py
 │  ├── classifier/
 │  │  ├── __init__.py

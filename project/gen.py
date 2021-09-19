@@ -1,7 +1,5 @@
 import os
 import sys
-
-import scipy
 import re
 import json
 import random

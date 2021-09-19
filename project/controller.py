@@ -1,20 +1,20 @@
-
 # from parse import parsing
 # from parse import lexical
 # from classifier import parse
 # import classifier
-from classifier.parse.parsing import CulcParser
-from classifier.classify import Classifier
+from project.classifier.parse.parsing import CulcParser
+from project.classifier.classify import Classifier
 import os
 import json
 
 class Controller:
     def __init__(self, rule_path) -> None:
         self.parser = CulcParser()
-        self.classifier = Classifier(model_path="./classifier/models/", F_path="./classifier/X_y_data/")
+        self.classifier = Classifier(model_path=".project/classifier/models/", F_path=".project/classifier/X_y_data/")
         self.classifier.load_F("typeClassify_F2.dill")
         self.classifier.load_model("typeClassify_M2.pickle")
         self.parser.set_classifier(self.classifier)
+        # self.parser.set_classifier(None)
         self._load_rules(rule_path)
 
         self.stateID_history = []
@@ -151,12 +151,12 @@ class Controller:
             with open(rule_path+topic_path, "r") as f:
                 self.topic_rules.append( json.load(f) ) 
         # print(self.topic_rules)
-    
+
 if __name__ == "__main__":
     # print("start")
     code = "if yn( 'それは正しいものですか？')"
     # code = "if "
-    rule_path = "./rule/"
+    rule_path = "./project/rule/"
 
     controller = Controller(rule_path)
 
