@@ -9,11 +9,11 @@
       "change_topic": [
         {
           "condition": "if in(['小林'], usr[-1])",
-          "next": 2
+          "next": [2]
         },
         {
           "condition": "if (phaseID = 1)",
-          "next": 1
+          "next": [1]
         }
       ]
     },
@@ -23,7 +23,7 @@
       "change_topic": [
         {
           "condition": "if in(['小林'], usr[-1])",
-          "next": 2
+          "next": [2]
         }
       ]
     },
@@ -33,7 +33,7 @@
       "change_topic": [
         {
           "condition": "if False",
-          "next": 2
+          "next": [2]
         }
       ]
     }

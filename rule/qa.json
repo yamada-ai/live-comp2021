@@ -77,31 +77,31 @@
       "into_phase": [
         {
           "condition": "if (actID = 100)",
-          "next": 0
+          "next": [0]
         },
         {
           "condition": "if (actID = 101)",
-          "next": 1
+          "next": [1]
         },
         {
           "condition": "if (actID = 102)",
-          "next": 2
+          "next": [2]
         },
         {
           "condition": "if (actID = 103) or (actID = 104)",
-          "next": 3
+          "next": [3]
         },
         {
           "condition": "if (actID = 105)",
-          "next": 4
+          "next": [4]
         },
         {
           "condition": "if (actID = 106) or (actID = 107) or (actID = 108)",
-          "next": 5
+          "next": [5]
         },
         {
           "condition": "if (actID = 109)",
-          "next": 6
+          "next": [6]
         }
       ]
     },
