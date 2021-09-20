@@ -4,14 +4,17 @@
 # import classifier
 from project.classifier.parse.parsing import CulcParser
 from project.classifier.classify import Classifier
+# from project.classifier 
+import sys
+# sys.path.append("./datatool")
 import os
 import json
 
 class Controller:
     def __init__(self, rule_path) -> None:
         self.parser = CulcParser()
-        self.classifier = Classifier(model_path=".project/classifier/models/", F_path=".project/classifier/X_y_data/")
-        self.classifier.load_F("typeClassify_F2.dill")
+        self.classifier = Classifier(model_path="./project/classifier/models/", F_path="./project/classifier/X_y_data/")
+        self.classifier.load_F("typeClassify_F2.pickle")
         self.classifier.load_model("typeClassify_M2.pickle")
         self.parser.set_classifier(self.classifier)
         # self.parser.set_classifier(None)

@@ -1,5 +1,5 @@
-from project.classifier.parse.lexical import Tokenizer
-from project.classifier.parse.lexical import Token
+# from project.classifier.parse.lexical import Tokenizer
+# from project.classifier.parse.lexical import Token
 
 from enum import IntEnum, auto
 
@@ -71,10 +71,14 @@ class CulcParser:
         # self.LA.display_tokens()
         if res < 0:
             print("failure Lexical Analyze")
+            
             return -1
 
         self.token = self.next_token()
-        self.condition_statement()
+        result = self.condition_statement()
+        if result < 0:
+            print(code)
+            return -1
         return self.val_stack.pop()
     
     # "if" -> 0
@@ -103,6 +107,7 @@ class CulcParser:
     def expression(self):
         
         simple1 = self.simple_expression()
+        # print(self.val_stack.stack)
         relation = -1
         if simple1 == -1:
             print("expression error : syntax error in simple_exp")
@@ -123,15 +128,15 @@ class CulcParser:
             v2 = self.val_stack.pop()
             v1 = self.val_stack.pop()
             if op == self.tname2TNUM("="):    
-                value = v1 == v2
+                value = (v1 == v2)
             elif op == self.tname2TNUM("<"):    
-                value = v1 < v2
+                value = (v1 < v2)
             elif op == self.tname2TNUM(">"): 
-                value = v1 > v2
+                value = (v1 > v2)
             elif op == self.tname2TNUM("<="):    
-                value = v1 <= v2
+                value = (v1 <= v2)
             else:
-                value = v1 <= v2
+                value = (v1 >= v2)
             self.val_stack.push(value)
         
         if relation < 0:
@@ -175,7 +180,7 @@ class CulcParser:
             # print(term1, add, term2)
             if not( 
                 (term1==add and  term1==term2) and 
-                (term1==Ltype.INT or term1==Ltype.BOOL)) :
+                (term1==Ltype.INT or term1==Ltype.STRING)) :
                     print("simple_exp error: The type must be Integer or Boolean and all the same type")
                     return -1
             # culc
@@ -206,10 +211,10 @@ class CulcParser:
             if factor2 == -1:
                 print("term error : syntax error in factor")
                 return -1
-            
+            print(factor1, multiple, factor2)
             if not( 
                 (factor1==multiple and  factor1==factor2) and 
-                (factor1==Ltype.INT or factor1==Ltype.BOOL)) :
+                not(factor1==Ltype.INT or factor1==Ltype.STRING)) :
                     print("term error: The type must be Integer or Boolean and all the same type")
                     return -1
             # culc
@@ -435,7 +440,10 @@ class CulcParser:
         arg2 = self.val_stack.pop()
         arg1 = self.val_stack.pop()
 
-        self.val_stack.push( self._in_func(arg1, arg2) )
+        ltype = self._in_func(arg1, arg2)
+        # print(ltype)
+        self.val_stack.push( ltype )
+        # print(self.val_stack.stack)
 
         if self.token != self.tname2TNUM(")"):
             print("in : ')' is required")
@@ -489,7 +497,10 @@ class CulcParser:
 
 if __name__ == "__main__":
     print("start")
-    code = ' topicID = 0'
+    code = "if (actID=2) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1]) "
+    # code = "if actID = 2"
+    from lexical import Tokenizer
+    from lexical import Token
     # code = 'in( ["aa", "b", "c"] , "aa" )'
     # code = 'in( "小林", usr[-1] )'
     
@@ -502,10 +513,13 @@ if __name__ == "__main__":
     # """
     
     parser = CulcParser()
-    parser.parsing(code)
+
+    parser.var["actID"] = 2 
+    parser.set_usr(["今忙しい", "業務がキツイ"])
+    print( parser.parsing(code ) )
     # print(result)
     # print(parser.LA.display_tokens())
-    parser.expression()
+    # parser.expression()
     print(parser.val_stack.stack)
 
     # func = lambda n: parser.tname2TNUM(n)

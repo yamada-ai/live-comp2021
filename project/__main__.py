@@ -1,4 +1,8 @@
+import sys
+sys.path.append("project/classifier/")
 from project.controller import Controller
+from project.classifier import datatool
+
 
 def sys_utterance(text, turn):
     print("sys[{0}]: {1}".format(turn, text))
