@@ -72,17 +72,26 @@ class Controller:
                     break
         # # change_phase
         # next act がnext id list にあるのか？
-        if self.next_actID[0] not in next_act_id_list:
-            change_phase_rule = self.current_phase["change_phase"]
-            self.parser.set_act_temp(self.next_actID[0])
-            for rule in change_phase_rule:
-                if self.parser.parsing(rule["condition"]):
-                    self.current_ID["act"] = 0
-                    self.current_ID["phase"] = rule["next"]
+        # if self.next_actID[0] not in next_act_id_list:
+        #     change_phase_rule = self.current_phase["change_phase"]
+        #     self.parser.set_act_temp(self.next_actID[0])
+        #     for rule in change_phase_rule:
+        #         if self.parser.parsing(rule["condition"]):
+        #             self.current_ID["act"] = 0
+        #             self.current_ID["phase"] = rule["next"]
+        change_phase_rule = self.current_phase["change_phase"]
+        # self.parser.set_act_temp(self.next_actID[0])
+        for rule in change_phase_rule:
+            if self.parser.parsing(rule["condition"]):
+                print("change phase")
+                self.current_ID["act"] = 0
+                self.current_ID["phase"] = rule["next"][0]
+                self.set_current_state()
                     # print(self.current_ID)
+                # self.check_change_topic_rule
         print(self.current_ID)
         print(self.next_actID)
-        return ac["reply"]
+        return self.current_act["reply"]
     
     def reply(self, context):
         # ユーザ発話を追加
@@ -95,13 +104,13 @@ class Controller:
 
         # 決定した topic のルールで発話選択
         t = self.check_change_topic_rule() 
-        # print("topic:", t)
+        print("topic:", t)
         if t >= 0:
             self.set_current_state()
             utt = self.current_act["reply"]
         else:
             utt = self.go2next_act()
-            self.set_current_state()
+            # self.set_current_state()
         return utt
 
     def persing(self, code):
@@ -121,10 +130,11 @@ class Controller:
                 for rule in topic["change_topic"]:
                     # print(rule["condition"])
                     if self.parser.parsing(rule["condition"]) : 
-                        self.current_ID["topic"] = rule["next"]
+                        # print("change topic")
+                        self.current_ID["topic"] = rule["next"][0]
                         self.current_ID["phase"] = 0
                         self.current_ID["act"]  = 0
-                        return rule["next"]
+                        return rule["next"][0]
                 break
         return -1
         
@@ -132,6 +142,7 @@ class Controller:
     # ルールの読み込み
     def _load_rules(self, rule_path):
         self.rules_name = os.listdir(rule_path)
+        
         self.topic_change_rules = []
         for fname in self.rules_name:
             if ".json" not in fname:
@@ -141,7 +152,8 @@ class Controller:
                     self.change_rule_json = json.load(f)
                 for rule in self.change_rule_json["topic_rule"]:
                     self.topic_change_rules.append(rule)
-
+        # print(self.topic_change_rules)
+        # print()
         # QAルールを取得
         qa_path = self.change_rule_json["qa_rule"]["file_name"]
         with open(rule_path+qa_path, "r") as f:
@@ -151,6 +163,7 @@ class Controller:
         self.topic_rules = []
         for topic in self.topic_change_rules:
             topic_path = topic["file_name"]
+            print(rule_path+topic_path)
             with open(rule_path+topic_path, "r") as f:
                 self.topic_rules.append( json.load(f) ) 
         # print(self.topic_rules)
