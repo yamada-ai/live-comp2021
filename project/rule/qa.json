@@ -3,106 +3,105 @@
     {
       "act": [
         {
-          "act_id": 1,
-          "condition": "if who(usr[-1]) and (topicID = 0 or topicID = 1)",
+          "act_id": 100,
+          "condition": "if who(usr[-1]) and ((topicID = 0) or (topicID = 1))",
           "reply": "今のところ私と、佐藤、鈴木、高橋、渡辺、それに小林です。それがどうかしましたか?",
           "next": [100]
         },
         {
-          "act_id": 2,
-          "condition": "if who(usr[-1]) and topicID = 2",
+          "act_id": 101,
+          "condition": "if who(usr[-1]) and (topicID = 2)",
           "reply": "小林と私以外だと、佐藤、鈴木、高橋、渡辺ですね。先輩が合わされば結構盛り上がれそうじゃないですか?",
           "next": [101]
         },
         {
-          "act_id": 4,
+          "act_id": 102,
           "condition": "if (yn(usr[-1]) or how(usr[-1])) and in(['居酒屋', 'お店','スナック', '飲み屋', '酒場', 'バー', '外'], usr[-1])",
           "reply": "流石にコロナも流行続いてますし、家族のワクチンもまだなので店では厳しいかなと。",
           "next": [102]
         },
         {
-          "act_id": 6,
+          "act_id": 103,
           "condition": "if (what(usr[-1]) or how(usr[-1])) and in(['お酒', 'アルコール', '酒類', '日本酒'], usr[-1])",
           "reply": "そこら辺は自宅に届けてくれるサービスを使うつもりです。先輩はお酒だとどれが好きでしたっけ? ",
           "next": [103]
         },
         {
-          "act_id": 7,
+          "act_id": 104,
           "condition": "if (what(usr[-1]) or how(usr[-1])) and in(['つまみ', '肴', '酒のあて', '酒の友'], usr[-1]) ",
           "reply": "その辺りは自宅に届けてくれるサービスを使うつもりです。先輩はおつまみだとどれが好きでしたっけ? ",
-          "next": [103]
-        },
-        {
-          "act_id": 8,
-          "condition": "if when(usr[-1]) or (how(usr[-1]) and in(['どのくらいやる', 'どれくらいやる', '時間'], usr[-1]))",
-          "reply": "家族いるやつもいるので夜の7時から9時の2時間ですね。ちょっと長いですかね?",
           "next": [104]
         },
         {
-          "act_id": 9,
+          "act_id": 105,
+          "condition": "if when(usr[-1]) or (how(usr[-1]) and in(['どのくらいやる', 'どれくらいやる', '時間'], usr[-1]))",
+          "reply": "家族いるやつもいるので夜の7時から9時の2時間ですね。ちょっと長いですかね?",
+          "next": [105]
+        },
+        {
+          "act_id": 106,
           "condition": "if why(usr[-1]) and in(['誘', '呼', 'さそ', '引き入', '引き込', '参加','招待'], usr[-1]) and in(['同期', '同僚', '仲良', '僚友', '仲間', '同労者'],usr[-1]) and in(['先輩', '俺', '僕', '私'], usr[-1])",
           "reply": "みんな先輩に来て欲しいって言っているからじゃないですか。それだけじゃ駄目ですか?",
-          "next": [105]
-        },
-        {
-          "act_id": 10,
-          "condition": "if yn(usr[-1]) and in(['同期', '同僚', '仲良', '僚友', '仲間', '同労者'],usr[-1])) and in(['オンリー', 'ばっかり','ばかり', 'のみ', 'だけ'], usr[-1])",
-          "reply": "みんな先輩に来て欲しいって言っているからじゃないですか。それだけじゃ駄目ですか?",
-          "next": [105]
-        },
-        {
-          "act_id": 11,
-          "condition": "if (yn(usr[-1]) or why(usr[-1])) and in(['促', '求', '欲', '望', '願'],usr[-1]) and in(['出席' ,'顔出', '参加'], usr[-1])",
-          "reply": "みんな先輩に来て欲しいって言っているからじゃないですか。それだけじゃ駄目ですか?",
-          "next": [105]
-        },
-        {
-          "act_id": 12,
-          "condition": "if (what(usr[-1]) or how(usr[-1])) and in(['通話', 'アプリ','飲み会'],usr[-1]) and in(['方式', '仕方', '何を利用', '何を使', 'やり方', '方法', '手法'],usr[-1])",
-          "reply": "一応一般的なアプリを利用するつもりです。おすすめとかありますか?",
           "next": [106]
         },
         {
-          "act_id": 50,
-          "condition": "if (why(usr[-1]) or what(usr[-1]) or who(usr[-1]) or which(usr[-1]) or how(usr[-1]) or yn(usr[-1])) and not in('小林', usr[-1])",
+          "act_id": 107,
+          "condition": "if yn(usr[-1]) and in(['同期', '同僚', '仲良', '僚友', '仲間', '同労者'],usr[-1])) and in(['オンリー', 'ばっかり','ばかり', 'のみ', 'だけ'], usr[-1])",
+          "reply": "みんな先輩に来て欲しいって言っているからじゃないですか。それだけじゃ駄目ですか?",
+          "next": [107]
+        },
+        {
+          "act_id": 108,
+          "condition": "if (yn(usr[-1]) or why(usr[-1])) and in(['促', '求', '欲', '望', '願'],usr[-1]) and in(['出席' ,'顔出', '参加'], usr[-1])",
+          "reply": "みんな先輩に来て欲しいって言っているからじゃないですか。それだけじゃ駄目ですか?",
+          "next": [108]
+        },
+        {
+          "act_id": 109,
+          "condition": "if (what(usr[-1]) or how(usr[-1])) and in(['通話', 'アプリ','飲み会'],usr[-1]) and in(['方式', '仕方', '何を利用', '何を使', 'やり方', '方法', '手法'],usr[-1])",
+          "reply": "一応一般的なアプリを利用するつもりです。おすすめとかありますか?",
+          "next": [109]
+        },
+        {
+          "act_id": 110,
+          "condition": "if (why(usr[-1]) or what(usr[-1]) or who(usr[-1]) or which(usr[-1]) or how(usr[-1]) and not in('小林', usr[-1])",
           "reply": [
             "その辺りは割とアバウトですね。 話戻しますよ。",
             "どうだったかな? そこはあんまり頭になかったですね。じゃあ、続けますね。",
             "んー、その辺は他の誰かが決める話だった気がします。ざっくりですいません。それはさておきですが、",
-            "ちょっと曖昧なんですよね。その辺りは。ところでなんですが、",
-            "というと、どういうことですか?"
+            "ちょっと曖昧なんですよね。その辺りは。ところでなんですが、"
           ],
           "next": [98]
         }
       ],
       "into_phase": [
         {
-          "condition": "if actID = 100",
-          "next": 0
+          "condition": "if (actID = 100)",
+          "next": [0]
         },
         {
-          "condition": "if actID = 101",
-          "next": 1
+          "condition": "if (actID = 101)",
+          "next": [1]
         },
         {
-          "condition": "if actID = 102",
-          "next": 2
+          "condition": "if (actID = 102)",
+          "next": [2]
         },
         {
-          "condition": "if actID = 103",
-          "next": 3
+          "condition": "if (actID = 103) or (actID = 104)",
+          "next": [3]
         },
         {
-          "condition": "if actID = 104",
-          "next": 4
+          "condition": "if (actID = 105)",
+          "next": [4]
         },
         {
-          "condition": "if actID = 105",
-          "next": 5
+          "condition": "if (actID = 106) or (actID = 107) or (actID = 108)",
+          "next": [5]
         },
         {
-          "condition": "if actID = 106",
-          "next": 6
+          "condition": "if (actID = 109)",
+          "next": [6]
         }
       ]
     },
