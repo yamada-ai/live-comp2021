@@ -17,7 +17,6 @@ class Controller:
         self.classifier.load_F("typeClassify_F2.pickle")
         self.classifier.load_model("typeClassify_M2.pickle")
         self.parser.set_classifier(self.classifier)
-        # self.parser.set_classifier(None)
         self._load_rules(rule_path)
 
         self.stateID_history = []
@@ -148,7 +147,7 @@ class Controller:
             if ".json" not in fname:
                 continue
             if "change" in fname:
-                with open(rule_path+fname, "r") as f:
+                with open(rule_path+fname, "r", encoding = "utf-8") as f:
                     self.change_rule_json = json.load(f)
                 for rule in self.change_rule_json["topic_rule"]:
                     self.topic_change_rules.append(rule)
@@ -156,14 +155,14 @@ class Controller:
         # print()
         # QAルールを取得
         qa_path = self.change_rule_json["qa_rule"]["file_name"]
-        with open(rule_path+qa_path, "r") as f:
+        with open(rule_path+qa_path, "r", encoding = "utf-8") as f:
             self.QA_rule = json.load(f)
 
         # 各トピックのルールを取得
         self.topic_rules = []
         for topic in self.topic_change_rules:
             topic_path = topic["file_name"]
-            print(rule_path+topic_path)
+            # print(rule_path+topic_path)
             with open(rule_path+topic_path, "r") as f:
                 self.topic_rules.append( json.load(f) ) 
         # print(self.topic_rules)
