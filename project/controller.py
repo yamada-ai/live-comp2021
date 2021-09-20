@@ -41,6 +41,7 @@ class Controller:
         self.current_topic = self.topic_rules[self.current_ID["topic"]]["phase"]
         for ph in self.current_topic:
             # 一致する phase
+            # print(ph.keys())
             if ph["phase_id"] == self.current_ID["phase"]:
                 self.current_phase = ph
                 for ac in ph["act"]:
