@@ -59,7 +59,7 @@
           "next": [10]
         },
         {
-          "condition": "if ((actID = 0) or (actID = 1)) and topicTurn = 6",
+          "condition": "if ((actID = 0) or (actID = 1)) and (topicTurn = 6)",
           "next": [9]
         },
         {

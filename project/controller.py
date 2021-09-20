@@ -9,6 +9,7 @@ import sys
 # sys.path.append("./datatool")
 import os
 import json
+import random
 
 class Controller:
     def __init__(self, rule_path) -> None:
@@ -89,9 +90,13 @@ class Controller:
                 self.set_current_state()
                     # print(self.current_ID)
                 # self.check_change_topic_rule
-        print(self.current_ID)
-        print(self.next_actID)
-        return self.current_act["reply"]
+        # print(self.current_ID)
+        # print(self.next_actID)
+        # return self.current_act["reply"]
+        if isinstance(self.current_act["reply"], str):
+            return self.current_act["reply"]
+        else:
+            return random.choice(self.current_act["reply"])
     
     def reply(self, context):
         # ユーザ発話を追加
@@ -104,7 +109,7 @@ class Controller:
 
         # 決定した topic のルールで発話選択
         t = self.check_change_topic_rule() 
-        print("topic:", t)
+        # print("topic:", t)
         if t >= 0:
             self.set_current_state()
             utt = self.current_act["reply"]

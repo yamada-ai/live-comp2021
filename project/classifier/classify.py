@@ -20,7 +20,7 @@ class Classifier:
         self.modelM =maneger.DataManager(self.model_path)
         self.FM =  maneger.DataManager(self.F_path)
 
-        self.remain_classes = "how what when where who why yn plain".split()
+        self.remain_classes = "how what when where who why yn plain positive negative".split()
         self.classes_dict = dict(zip(self.remain_classes, list(range(len(self.remain_classes)))))
 
 
@@ -30,7 +30,7 @@ class Classifier:
     
     def load_F(self, name="typeClassify_F2.pickle"):
         self.F = self.FM.load_data(name)
-        # self.F.set_preprocessor(preprocess.Preprocessor())
+        self.F.set_preprocessor(preprocess.Preprocessor())
     
     def predict_type(self, mode, text):
         f = self.F.featurization(text)
