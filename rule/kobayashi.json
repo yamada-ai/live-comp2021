@@ -12,7 +12,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 0",
+          "condition": "if (actID = 0)",
           "next": [1]
         }
       ]
@@ -44,7 +44,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 or actID = 2",
+          "condition": "if (actID = 1) or (actID = 2)",
           "next": [2]
         }
       ]
@@ -76,7 +76,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 2",
+          "condition": "if (actID = 2)",
           "next": [3]
         }
       ]
@@ -108,7 +108,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1 or actID = 2",
+          "condition": "if (actID = 1) or (actID = 2)",
           "next": [4]
         }
       ]
@@ -140,7 +140,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 2",
+          "condition": "if (actID = 2)",
           "next": [5]
         }
       ]
@@ -165,7 +165,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 1",
+          "condition": "if (actID = 1)",
           "next": [6]
         }
       ]
@@ -190,7 +190,7 @@
       ],
       "change_phase": [
         {
-          "condition":"if actID = 1",
+          "condition":"if (actID = 1)",
           "next": [7]
         }
       ]
@@ -208,7 +208,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if actID = 0",
+          "condition": "if (actID = 0)",
           "next": [8]
         }
       ]
