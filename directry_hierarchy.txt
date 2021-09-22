@@ -1,0 +1,25 @@
+live-comp2021/
+├── README.md 
+├── requirements.txt
+├── project/
+│  ├── __init__.py
+│  ├── classifier/
+│  │  ├── __init__.py
+│  │  ├── corpus/          ............ 訓練データ
+│  │  ├── crawler/
+│  │  ├── parse/           ............ 字句解析・構文解析モジュール
+│  │  │  ├── __init__.py
+│  │  │  ├── grammer.txt
+│  │  │  ├── lexical.py
+│  │  │  │  └── class name : Tokenizer
+│  │  │  └── parsing.py
+│  │  │      └── class name : CulcParser
+│  │  ├── tool/            ............ プリプロセッサ・ロードモジュール
+│  │  │  ├── __init__.py
+│  │  │  ├── manager.py
+│  │  │  └── preprocess.py
+│  │  └── train/           ............ 疑問分類・極性分析モジュール
+│  └── rule/                ............ 対話ルール
+└── tests　                  ........... 単体テストのソースコードディレクトリ
+   ├── __init__.py
+   └── *.py

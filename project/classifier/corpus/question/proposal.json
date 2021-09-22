@@ -1,0 +1,2087 @@
+{
+    "proposal": [
+        {
+            "data": "そろそろインタビューを始めようか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "そろそろ家に帰ろうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "アイスクリームを食べない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "向こうで雨宿りしない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "チケットを取りましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "教授の肩に強力なＮマークをつけますか、閣下？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "あなたの落語をご両親に見てもらうのはどうでしょう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "スープを作ったら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "サヤ、あなたから始めてくれる？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "「夕食を用意する間に、お風呂に入ったらどうですか？」",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "公園に行って遊んできたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "そうしましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "マンガを描いたらどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "しばらくここにいてはどうかな？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "また働き始めたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あの自動車修理工場に行ってみよう。",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "彼女に助けを頼もうか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "そろそろ行こうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "休憩しようか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "みんなで行ってご挨拶しないか。",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "外に行かない？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "あとで返事をすればいいじゃない。",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "おばあさんに電話してあげたらどうなの？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "どうして雪おろしのボランティアを募集しないの？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "思い切って外に出て、もう少し日本を見てみたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "もう少しここにいたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "代わりに季節のあいさつ状を送ったらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "小道の行き止まりまで歩こうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "どうしてハワイとかメキシコに行かないんですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "参加したらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いっしょに保健室に行こうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "君も僕たちに加わらないかい？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "3人でどこかドライブに行きませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "通信販売を試してみたらどうかな？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "そうだね…アジサイ寺はどうですか？",
+            "label": [
+                "proposal",
+                "Let's"
+            ]
+        },
+        {
+            "data": "じゃ、始めましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "クリスに聞いてみたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今週末、田植えツアーにいっしょに行きませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "アルバイトしたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "地図を作ろうよ。",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "週末一緒に宿題をしましょうか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "君のおばあちゃんに聞いたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "インタビューを始めましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "カイルか匠に聞いてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "凛花はあっちの道に行ってみたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今年の運を試してみてはどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あとで神社に行こうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "家族といっしょにクリスマスを過ごしたらどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "わたしといっしょに来ない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "チェックインしようか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "家族といっしょにクリスマスを過ごしたらどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "交換しませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "交換しませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "名前を確認しようか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "演奏を始めましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "重いものを運ぶのはブラッドに頼んでみたらどうだい？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "彼女と話してみたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "パパが彼に働きかけたらどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "試してみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "マリーナ神社に行ってみてはどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "なぜそれらをもっと使わないのですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "なぜそれらをもっと使わないのですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "「来月の中間試験のあと、智美さんとお話ししてもいいですか？  智美さんの教室で会いましょうか？」って書いてある。",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "智美さんの教室で会いましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "自分で聞いたらどうなの？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "自分で聞いたらどうなの？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "腰を下ろして一息ついたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "やることリストを作ったらどう。",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ゲームでもしましょうか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "新しい案を考えませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "わたしといっしょに劇を見るのはどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "わたしといっしょに劇を見るのはどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "まずは入学試験でベストを尽くしたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "トニーの脚本をやってみませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "あなたが本当に夢中になれる何かを見つけてみたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いっしょにもっと話さないか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "前のほうに座りませんか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "前のほうに座りませんか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "みんなで行こうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "お父さんが来るまで待ったらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いっしょに買い物に行きませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "いっしょに買い物に行きませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "中に入らない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "青森にいるあなたのお兄さんのヒデキを訪ねるのはどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "コイトタワーへ進みましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "そのことを書いたらどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "俺のレストランに来てみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "見に来ませんか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "お父さんに電話したら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "剣道について書いたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "これから原宿に行って竹下通りに行くのはどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "箱根の温泉に行くなんてどうだい？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "ちょっと考えてからもう一度始めてごらん。",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "行ったらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "おいでよ。",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "アニーをディナーに招待したらどう",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "フィッシュアンドチップスでも買って食べたら",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あなたのお友達を家に呼んだら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "そこに行かないかい？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "さあ、入ったらどうじゃ？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "なぜ手伝ってあげないの？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ハロウィーンのディナー・パーティーをしたらどうかな？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "これからそこへいっしょに行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "インターネットで調べてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あなたがルールを決めたらどうなの？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "風車を見て、チーズ工場に行かない？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "今年のクリスマスに、スイスの私の家に来ない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "アポロ10号の宇宙船指令室の模型を買ったらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今週末行ったらどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "みんな、ふろに入ったらどうだ？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ママに聞いたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ハンバーガーショップに行って、ハンバーガーを食べてソーダを飲まない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "玄関の広間に置いたらどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "アパートを見にいきましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "不動産屋さんに行ったらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "インターネットで調べてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "君も一緒に行かないか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "立ってみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "えーと…82ページかい？",
+            "label": [
+                "proposal",
+                "Let's"
+            ]
+        },
+        {
+            "data": "2階で待たないかい？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "彼女に電話したら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "どうして彼のことがわからないの？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今度の土曜日、みんなでショッピングに行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "いっしょにカーナビー・ストリートに行かないかい？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "昼寝したらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ママ、地下鉄に乗ったら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あしたから始めてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "みんなでサッカーに参加したらどうかな？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "お母さんにインタビューしてみたらどうかな？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ぼくたちといっしょにどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ママに聞いてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "この夏、ローマに行かない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あなたもいっしょに来ない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ティノもいっしょに来ないか聞いてみない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "もどらない？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "散歩に行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "バーニーを連れていったらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "それを買ったら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "庭で練習したらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あなたも来ない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "みんなで分けて食べましょう。",
+            "label": [
+                "proposal",
+                "Let's"
+            ]
+        },
+        {
+            "data": "入らない？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "簡単に自己紹介してはどうかな？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "試してみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "私に会いに、じゃなくて、それらを見に来ない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ママを連れていかない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "麻衣子が日本に帰る前に、最後の家族旅行としてそこに連れていったらどうかな？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "あなたのプレゼンテーションの練習をしてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "Eメールを送ったらどうだい？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "土曜日の夜、マリオズトラットリアで落ち合いませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "ぼくと一緒に行かないかい？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "君がバースデーケーキを焼いてみては？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いっしょに散歩に出かけましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "あとで図書館に行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "あした、いっしょに買い物に行きましょう。",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "それなら私の車みたいに、ハイブリッドカーにしたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "もう今夜は終わりにしたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "美容師さんにもっと明るくするようにお願いしてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "髪を短く切ってもらったらどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あなたもいっしょに競争したらどう、ポール？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "英語の歌を歌うのはどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "君たちも、デイ・キャンプのボランティアとして加わってみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "国々をグループに入れてみてはどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いっしょに行かないかい？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "パブで外食しない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "あの新しいベジタリアン・レストランに行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "お肉屋さんにもっと薄切りにしてくれるように、お願いしてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "日本語を習ってみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "夕食の前に部屋に行ってお昼寝をしたらどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "だれかに迎えに来てもらうようにお願いしたらどうかな？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ロンドンの観光ツアーに連れていったらどうかな？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "部屋に上がってみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今月の演目を見に、リリー・シアターに寄ってみない？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "今、私に読んでみたらどうかな？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "きょうはお雑煮を食べてみない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ピーター、おもちゃ売り場に行こうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "水着に着替えて、20分後に待ち合わせない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "サイズ5を試してみてはいかがですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "君たちと子どもたちもいっしょに、お祝いしませんか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "「ゾンビ・ダンス」をおどってあげたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いっしょに買い物に行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "遅くなったから、今夜は泊まっていかない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ステーキのフライドポテト添えを食べてみたらどうだい？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "こちらに座りましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "ホームメイドのコーンウォールパイはどうかな？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いつか、ぼくの家に来ない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "「これを試してみない？」　「いや、それは絶対にうまくいかないよ！」",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "その代わりに、今度の土曜日、ショッピング・モールに行くのはどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "僕の家に1時に来るというのはどうかな？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ケータリングを頼んで、食べ物を用意してもらったらどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "あなた専用の新しい自転車を買うように、ママにお願いしてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "きょういっしょに、学校へ歩いて行かない?",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "毎日、これをしない?",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "部屋にもどって休んだら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "わたしたちはその対戦に参加しましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "彼女と遊んだらどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ステファニーに学校を案内してあげたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今日、一緒にランチを食べない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "1週間休んだら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今月は、お休みしたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今すぐに練習したらどう？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "自分のペースでやったらどうだい？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "年相応のふるまいをしたらどうなの。",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今回は君がワインを選んだら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "一口食べてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "自転車に乗って横浜の中華街に行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "来週の火曜日を目標にしよう",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "わたしたちいっしょにカバを見に行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "鼻にはわたしのペットボトルを使ったらどうかしら?",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "新年の抱負をみんなで言い合いましょうよ。",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "自動販売機とベンチをさがさない？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "さつまいもを使ったらどうですか?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今夜、茶碗蒸しを作ったらどうかしら?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "マイクの顔をぬってみたら?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "レイチェルからラッフルの券を買わない?",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "トランプをしようか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "そこへ行ったらどう?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "どこかへ行かない?",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "いっしょに横断幕を作らない?",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "同じ美容院へ行ったらどう、お父さん?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "佐々木さんに聞いてみたら?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "新しい種類のニューヨークのベーグルを作ったらどうかしら?",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "綾香に聞いてみたら?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "どれも1つずつ買わない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "1日休んだら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "あなたも参加しない?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "本題に入ってくれないか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "わたしの家で課題をしましょうよ。",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "スケートボード場で乗ったらどう?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "その古い車を下取りに出したら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "きょうは窓ぎわに座らない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "合格したって？お祝いしよう！",
+            "label": [
+                "proposal",
+                "Let's"
+            ]
+        },
+        {
+            "data": "あそこで軽い食事をしない？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "ここでなべパーティーをしたらどうかしら？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "今、試してみたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "入学試験のための勉強をしたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "サンタを数えてみたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "コインで決めよう。表か裏か。",
+            "label": [
+                "proposal",
+                "Let's"
+            ]
+        },
+        {
+            "data": "いちおう見てみる？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いちおう聞いてみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "もう少し見る、それとも帰る？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "今年、あなたもわたしたちのチームに加わらない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "節電に努めたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "ぼくといっしょに取り組まないか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "フリーマーケットで売ってはどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今電話したら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "みんなで行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "来週、見に行かない？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "まず当ててみたらどう？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "いっしょに買い物に行かない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "僕みたいに、のんびりして、クリスマスシーズンを楽しんだら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "試してみて?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "君の両親に、1匹買ってくれるようにたのんでみたら？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今食べる、それともあとで何か食べる？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "踊りませんか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "あなたが何周走ったか、わたしたちが数えましょうか、クリス？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "試してみたら?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "もしよかったらクヒオ通りの回転寿司のお店に行かないかい?",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "あなたが毛をブラシして、私が歯を磨くことにしない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今晩みんなで湘南平へ行きませんか？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "とりあえずその件は今は保留にしておいて、あとでタイミングを見てあらためて着手したらどうだろう？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "こういう入学試験の作成はやめたらどうだろう？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "行きましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "遊びにこない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "もうわたしたちダウンタウンに来ちゃっているのだから、今晩は外食しない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "行きましょうか？",
+            "label": [
+                "proposal",
+                "Shall we"
+            ]
+        },
+        {
+            "data": "来ない？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "日本の古い怪談映画の特別プログラムを上映しない？",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "でも、まず自分でやってみては?",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "今日はここまでにしようぜ。",
+            "label": [
+                "proposal",
+                "Why don't we"
+            ]
+        },
+        {
+            "data": "試してみてはどうですか？",
+            "label": [
+                "proposal",
+                "Why don't you"
+            ]
+        },
+        {
+            "data": "もう少しトーストはどう？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "サンドウイッチはいかがですか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "いっしょに来ますか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "今夜、私たちと一緒に飲みに行きませんか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "お代わりはいかがですか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "私たちと一緒に行かない？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "僕がプラスチックの卵を2、3袋買ってきてあげようか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "ホットチョコレートかアップルサイダーはいかが？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "君もどうだい？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "チェックインなさいますか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "飲み物はいかがですか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "スパイス入りのホットサイダーはいかがでしょうか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "あなたの調査をそこで発表してはいかがですか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "いっしょに行かない？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "ホット・チョコレートを少し飲まない？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "鍬とつるはしをお貸ししましょうか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "たい焼きを食べに行かない？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "はいてごらんになりますか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "勝ってみせましょうか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "何かお飲み物はいかがですか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "メニューをごらんになりますか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "このカオソーイを味見してみますか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "お茶でもいかがですか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "もう一切れいかがかな？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "次の週末、マンゴータウンに来ない？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "伝言を承りましょうか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "注文なさいますか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "何かお飲み物はいかがですか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "試着なさいますか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "竹のプリンはいかがですか？",
+            "label": [
+                "proposal"
+            ]
+        },
+        {
+            "data": "君たちも、参加しないかい？",
+            "label": [
+                "proposal"
+            ]
+        }
+    ]
+}

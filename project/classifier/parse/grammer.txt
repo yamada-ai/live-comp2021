@@ -1,0 +1,51 @@
+字句解析部
+
+program ::= { token | separator}
+
+token ::= keyword | integer | string | symbol
+
+keyword ::= "if" | "and" | "or"| "not" | "True" | "False" | "count" | "in" | "why" | "what" | "how" | "when" | "who" | "where" | "yn" | "positive" | "negative" | 
+
+integer ::= digit { digit }
+
+string ::= "\" {string element} \""   <- ex "aaa" == string
+
+symbol ::= "+" | "-" | "=" | "<=" | ">=" | "<" | ">" | "(" | ")" | ":" | "," | "[" | "]"
+
+alphabet ::= [a-zA-Z]
+
+digit ::= [0-9]
+
+separator ::= 空白 | タブ 
+
+
+
+構文解析部
+
+condition_statement ::= "if" expression ":"
+
+expression ::= simple_expression { relational_operator  simple_expression}
+
+"simple_expression" ::= ["+"|"-"] term {addtive_operator term}
+
+term ::= factor {multiplicative_operator factor}
+
+factor ::= constant | "(" expression ")" | "not" factor | functions
+
+constant ::= integer | "False" | "True" | string | Array
+
+Array ::= "[" expression {"," expression } "]"
+
+multiplicative_operator ::= "*" | "/" | "and"
+
+addtive_operator ::= "+" | "-" | "or"
+
+relational_operator ::= "=" | "<" | ">" | "<=" | ">="
+
+functions ::= In | Count | Re | 
+
+In ::= "in" "("   string | Array[string]  "," string")" -> bool
+
+Count ::= "count" "(" string "," string ")" -> int
+
+Re ::= "re" "(" string "," string ")" -> bool
