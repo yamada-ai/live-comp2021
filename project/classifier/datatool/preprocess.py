@@ -6,26 +6,48 @@ import numpy as np
 from pkg_resources import normalize_path
 import spacy
 import re
+import neologdn
 
 class Preprocessor:
 
     def __init__(self) -> None:
         self.nlp = spacy.load('ja_ginza')
-        self.nlp.add_pipe(self.nlp.create_pipe('sentencizer'))
-        # self.model_path = "/home/yamada/Downloads/training_bert_japanese"
-        # self.sen_model = SentenceTransformer(self.model_path, show_progress_bar=False)
+        self.nlp.add_pipe('sentencizer')
 
-        # 半角全角英数字
-        # self.DELETE_PATTERN_1 = re.compile(r'[0-9０-９a-zA-Zａ-ｚＡ-Ｚ]+')
+        # 数字
+        self.DELETE_PATTERN_1 = re.compile(
+            r'(\d+)(([,.])(\d*))*'
+            )
         # 記号
         self.DELETE_PATTERN_2 = re.compile(
-            r'[\．_－―─！＠＃＄％＾＆\-‐|\\＊\“（）＿■×+α※÷⇒—●★☆〇◎◆▼◇△□(：〜～＋=)／*&^%$#@!~`){}［］…\[\]\"\'\”\’:;<>?＜＞〔〕〈〉？、。・,\./『』【】「」→←○《》≪≫\n\u3000]+')
-        
+            r'[\．_－―─！＠＃＄％＾＆\-‐|\\＊\“（）＿■×+α※÷⇒—●★☆〇◎◆▼◇△□(：〜～＋=)／*&^%$#@!~`){}［］…\[\]\"\'\”\’:;<>?＜＞〔〕〈〉？、。・,\./『』【】「」→←○《》≪≫\n\u3000]+'
+            )
+        # URL
+        self.DELETE_PATTERN_3 = re.compile(
+            r'https?://[\w/:%#\$&\?\(\)~\.=\+\-]+'
+            )
+        # embedding size : 300
         self.emb_size = self.get_sentence_vec("emb").shape[0]
-        print(self.emb_size)
 
         self.independent_words = set("名詞 代名詞 動詞 形容詞 副詞 詞接続詞 感動詞 連体".split() )
+    
+    def clean_text(self, text):
+        # trim contents in brackets
+        # not defined
 
+        # trim number
+        text = self.DELETE_PATTERN_1.sub('0', text)
+
+        # trim pattern
+        text = self.DELETE_PATTERN_2.sub('', text)
+
+        # trim url
+        text = self.DELETE_PATTERN_3.sub('', text)
+
+        # normalization
+        text = neologdn.normalize(text)
+
+        return text
 
     def get_sentence_vec(self, sen) -> np.array:
         # sen_ = self.DELETE_PATTERN_1.sub(sen)
@@ -33,20 +55,21 @@ class Preprocessor:
         sentence_vec = self.nlp(sen).vector
         # sentence_vec = self.sen_model.encode(sen)[0]
         return sentence_vec
-    
-    def get_POS(self, sen):
+
+    # tagging pos in sentences or sentence
+    def get_POS(self, sentences):
+
         pos_list = []
-        if isinstance(sen, str):
-            doc = self.nlp(sen)
+        texts = []
+        if isinstance(sentences, str):
+            sentences = self.clean_text(sentences)
+            doc = self.nlp(sentences)
             texts = [str(s)  for s in doc.sents]
-
-        elif isinstance(sen, list):
-            texts = []
-            docs = list(self.nlp.pipe(sen, disable=['ner']))
-            # return [ self.get_POS(sen_) for sen_ in sen]
+        elif isinstance(sentences, list):
+            docs = list(self.nlp.pipe(sentences, disable=['ner']))
             for doc in docs:
-                texts.extend( [str(s) for s in doc.sents] )
-
+                text = [str(s) for s in doc.sents]
+                texts.append(self.clean_text(str(text)))
         else:
             return None
         docs = list(self.nlp.pipe(texts, disable=['ner']))
@@ -55,19 +78,22 @@ class Preprocessor:
         
         return pos_list
     
-    def get_lemma(self, sen):
+    # tagging lemma in sentences or sentence
+    def get_lemma(self, sentences):
+
         lemma_list = []
-        if isinstance(sen, str):
-            doc = self.nlp(sen)
+        texts = []
+
+        if isinstance(sentences, str):
+            sentences = self.clean_text(sentences)
+            doc = self.nlp(sentences)
             texts = [str(s)  for s in doc.sents]
-
-        elif isinstance(sen, list):
-            texts = []
-            docs = list(self.nlp.pipe(sen, disable=['ner']))
-            # return [ self.get_POS(sen_) for sen_ in sen]
+        elif isinstance(sentences, list):
+            docs = list(self.nlp.pipe(sentences, disable=['ner']))
             for doc in docs:
-                texts.extend( [str(s) for s in doc.sents] )
-
+                doc = self.clean_text(doc)
+                text = [str(s) for s in doc.sents]
+                texts.extend(self.clean_text(str(text)))
         else:
             return None
         docs = list(self.nlp.pipe(texts, disable=['ner']))

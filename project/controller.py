@@ -169,7 +169,7 @@ class Controller:
         for topic in self.topic_change_rules:
             topic_path = topic["file_name"]
             # print(rule_path+topic_path)
-            with open(rule_path+topic_path, "r") as f:
+            with open(rule_path+topic_path, "r", encoding = "utf-8") as f:
                 self.topic_rules.append( json.load(f) ) 
         # print(self.topic_rules)
 
