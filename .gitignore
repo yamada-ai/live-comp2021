@@ -1,4 +1,6 @@
+project/__pycache__
+tests/__pycache__
 project/classifier/__pycache__
+project/classifier/datatool/__pycache__
+project/classifier/parse/__pycache__
 project/classifier/train/__pycache__
-project/classifier/models/
-project/classifier/X_y_data/

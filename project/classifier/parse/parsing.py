@@ -1,5 +1,5 @@
-# from project.classifier.parse.lexical import Tokenizer
-# from project.classifier.parse.lexical import Token
+from project.classifier.parse.lexical import Tokenizer
+from project.classifier.parse.lexical import Token
 
 from enum import IntEnum, auto
 
@@ -38,7 +38,7 @@ class CulcParser:
         self.var_init()
 
         self.constant_t = set( map(self.TNUM_func,  "TNUMBER TSTRING True False [".split() + self.var_l ) )
-        self.func_name = set( map(self.TNUM_func, "in count yn who why what when where how".split()) )
+        self.func_name = set( map(self.TNUM_func, "in count yn who why what when where how positive negative".split()) )
         self.multi_op = set( map( self.TNUM_func, "* / and".split() ) )
         self.add_op = set( map( self.TNUM_func, "+ - or".split() ))
         self.relation_op = set( map(self.TNUM_func, "= < > <= >=".split()) )
@@ -180,7 +180,7 @@ class CulcParser:
             # print(term1, add, term2)
             if not( 
                 (term1==add and  term1==term2) and 
-                (term1==Ltype.INT or term1==Ltype.STRING)) :
+                not(term1==Ltype.INT or term1==Ltype.STRING)) :
                     print("simple_exp error: The type must be Integer or Boolean and all the same type")
                     return -1
             # culc
@@ -211,7 +211,7 @@ class CulcParser:
             if factor2 == -1:
                 print("term error : syntax error in factor")
                 return -1
-            print(factor1, multiple, factor2)
+            # print(factor1, multiple, factor2)
             if not( 
                 (factor1==multiple and  factor1==factor2) and 
                 not(factor1==Ltype.INT or factor1==Ltype.STRING)) :
@@ -225,6 +225,7 @@ class CulcParser:
             elif op == self.tname2TNUM("/"):    
                 value = int(v1 / v2)
             else:
+                print(v1, v2)
                 value = v1 and v2
             self.val_stack.push(value)
             # culc
@@ -443,7 +444,7 @@ class CulcParser:
         ltype = self._in_func(arg1, arg2)
         # print(ltype)
         self.val_stack.push( ltype )
-        # print(self.val_stack.stack)
+        print(self.val_stack.stack)
 
         if self.token != self.tname2TNUM(")"):
             print("in : ')' is required")
@@ -497,10 +498,10 @@ class CulcParser:
 
 if __name__ == "__main__":
     print("start")
-    code = "if (actID=2) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1]) "
+    code = "if (actID = 1) or (actID = 2) "
     # code = "if actID = 2"
-    from lexical import Tokenizer
-    from lexical import Token
+    # from lexical import Tokenizer
+    # from lexical import Token
     # code = 'in( ["aa", "b", "c"] , "aa" )'
     # code = 'in( "小林", usr[-1] )'
     

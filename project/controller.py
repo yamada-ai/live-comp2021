@@ -2,6 +2,7 @@
 # from parse import lexical
 # from classifier import parse
 # import classifier
+from project.classifier.datatool import preprocess
 from project.classifier.parse.parsing import CulcParser
 from project.classifier.classify import Classifier
 # from project.classifier 
@@ -9,6 +10,7 @@ import sys
 # sys.path.append("./datatool")
 import os
 import json
+import random
 
 class Controller:
     def __init__(self, rule_path) -> None:
@@ -17,7 +19,6 @@ class Controller:
         self.classifier.load_F("typeClassify_F2.pickle")
         self.classifier.load_model("typeClassify_M2.pickle")
         self.parser.set_classifier(self.classifier)
-        # self.parser.set_classifier(None)
         self._load_rules(rule_path)
 
         self.stateID_history = []
@@ -34,6 +35,11 @@ class Controller:
         self.next_actID = []
         self.set_current_state()
 
+        self.is_prev_QA = 0
+        self.QA_id = {}
+        self.is_continue_QA = False
+        # self.is_prev_QA = 0
+
         # self.update_next(self.current_state)
     
     # def check_change_rule(self, context):
@@ -42,6 +48,7 @@ class Controller:
         self.current_topic = self.topic_rules[self.current_ID["topic"]]["phase"]
         for ph in self.current_topic:
             # 一致する phase
+            # print(ph.keys())
             if ph["phase_id"] == self.current_ID["phase"]:
                 self.current_phase = ph
                 for ac in ph["act"]:
@@ -70,19 +77,24 @@ class Controller:
                     self.current_ID["act"] = ac["act_id"]
                     self.current_act = ac
                     break
-        # # change_phase
-        # next act がnext id list にあるのか？
-        if self.next_actID[0] not in next_act_id_list:
-            change_phase_rule = self.current_phase["change_phase"]
-            self.parser.set_act_temp(self.next_actID[0])
-            for rule in change_phase_rule:
-                if self.parser.parsing(rule["condition"]):
-                    self.current_ID["act"] = 0
-                    self.current_ID["phase"] = rule["next"]
+
+        change_phase_rule = self.current_phase["change_phase"]
+        # self.parser.set_act_temp(self.next_actID[0])
+        for rule in change_phase_rule:
+            if self.parser.parsing(rule["condition"]):
+                print("change phase")
+                self.current_ID["act"] = 0
+                self.current_ID["phase"] = rule["next"][0]
+                self.set_current_state()
                     # print(self.current_ID)
-        print(self.current_ID)
-        print(self.next_actID)
-        return ac["reply"]
+                # self.check_change_topic_rule
+        # print(self.current_ID)
+        # print(self.next_actID)
+        # return self.current_act["reply"]
+        if isinstance(self.current_act["reply"], str):
+            return self.current_act["reply"]
+        else:
+            return random.choice(self.current_act["reply"])
     
     def reply(self, context):
         # ユーザ発話を追加
@@ -92,28 +104,55 @@ class Controller:
 
         # topic分類
         # 1. QA
-
-        # 決定した topic のルールで発話選択
-        t = self.check_change_topic_rule() 
-        # print("topic:", t)
-        if t >= 0:
-            self.set_current_state()
-            utt = self.current_act["reply"]
+        qa_utt = ""
+        # qa_utt = self.check_QA_rules()
+        # print(qa_utt)
+        if qa_utt != "":
+            self.is_prev_QA = True
+            return qa_utt
         else:
-            utt = self.go2next_act()
-            self.set_current_state()
-        return utt
+            # 決定した topic のルールで発話選択
+            t = self.check_change_topic_rule() 
+            # print("topic:", t)
+            if t >= 0:
+                self.set_current_state()
+                utt = self.current_act["reply"]
+            else:
+                utt = self.go2next_act()
+                # self.set_current_state()
+            self.stateID_history.append(self.current_ID)
+            self.is_prev_QA = False
+            return utt
 
     def persing(self, code):
         print("code: {0}".format(code))
 
         print(self.parser.parsing(code))  
-    
+
     def check_QA_rules(self):
+        utt = ""
         for ac in self.QA_rule["qa_init_phase"]["act"]:
             # 条件部で発火した場合
             if self.parser.parsing(ac["condition"]):
-                pass
+                utt = ac["reply"]
+                self.current_ID["act"] = ac["act_id"]
+                next_id = ac["next"][0]
+                # continue QA
+                if next_id > 99:
+                    self.is_continue_QA = True
+                # 98
+                elif next_id == 98:
+                    # 98 で元のactに戻る
+                    self.current_ID["act"] = self.stateID_history[-1]["act"]
+                # 99
+                else:
+                    # 99 で次のphase へ行く？
+                    # 現状はそのまま 98 と同じ挙動
+                    self.current_ID["act"] = self.stateID_history[-1]["act"]
+                break
+        return utt
+        
+
     
     def check_change_topic_rule(self):
         for topic in self.topic_change_rules:
@@ -121,10 +160,11 @@ class Controller:
                 for rule in topic["change_topic"]:
                     # print(rule["condition"])
                     if self.parser.parsing(rule["condition"]) : 
-                        self.current_ID["topic"] = rule["next"]
+                        # print("change topic")
+                        self.current_ID["topic"] = rule["next"][0]
                         self.current_ID["phase"] = 0
                         self.current_ID["act"]  = 0
-                        return rule["next"]
+                        return rule["next"][0]
                 break
         return -1
         
@@ -132,26 +172,29 @@ class Controller:
     # ルールの読み込み
     def _load_rules(self, rule_path):
         self.rules_name = os.listdir(rule_path)
+        
         self.topic_change_rules = []
         for fname in self.rules_name:
             if ".json" not in fname:
                 continue
             if "change" in fname:
-                with open(rule_path+fname, "r") as f:
+                with open(rule_path+fname, "r", encoding = "utf-8") as f:
                     self.change_rule_json = json.load(f)
                 for rule in self.change_rule_json["topic_rule"]:
                     self.topic_change_rules.append(rule)
-
+        # print(self.topic_change_rules)
+        # print()
         # QAルールを取得
         qa_path = self.change_rule_json["qa_rule"]["file_name"]
-        with open(rule_path+qa_path, "r") as f:
+        with open(rule_path+qa_path, "r", encoding = "utf-8") as f:
             self.QA_rule = json.load(f)
 
         # 各トピックのルールを取得
         self.topic_rules = []
         for topic in self.topic_change_rules:
             topic_path = topic["file_name"]
-            with open(rule_path+topic_path, "r") as f:
+            # print(rule_path+topic_path)
+            with open(rule_path+topic_path, "r", encoding = "utf-8") as f:
                 self.topic_rules.append( json.load(f) ) 
         # print(self.topic_rules)
 
