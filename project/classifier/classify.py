@@ -4,6 +4,10 @@ from sklearn.linear_model import LogisticRegression
 import sys
 # sys.dont_write_bytecode = True
 # sys.path.append('../')
+# from datatool import maneger
+# from datatool import preprocess
+# from train import feature
+
 from project.classifier.train import feature
 from project.classifier.datatool import maneger
 from project.classifier.datatool import preprocess
@@ -12,6 +16,8 @@ from project.classifier.datatool import preprocess
 sys.modules["feature"] = feature
 sys.modules["manager"] = maneger
 sys.modules["preprocess"] = preprocess
+
+
 
 class Classifier:
     def __init__(self, model_path="./models/", F_path="./X_y_data/") -> None:
@@ -23,8 +29,6 @@ class Classifier:
         self.remain_classes = "how what when where who why yn plain positive negative".split()
         self.classes_dict = dict(zip(self.remain_classes, list(range(len(self.remain_classes)))))
 
-
-    
     def load_model(self, name="typeClassify_M2.pickle"):
         self.model = self.modelM.load_data(name)
     
@@ -33,8 +37,11 @@ class Classifier:
         self.F.set_preprocessor(preprocess.Preprocessor())
     
     def predict_type(self, mode, text):
+        print(text)
         f = self.F.featurization(text)
         y = self.model.predict(f.reshape(1, -1))
+        # print(self.classes_dict)
+        # print(y)
         if self.classes_dict[mode] == y:
             return True
         else:
@@ -46,5 +53,5 @@ if __name__ == "__main__":
     classsifier.load_model()
     classsifier.load_F()
 
-    print(classsifier.predict_type(mode="yn", text="それは正しいものですか？"))
+    print(classsifier.predict_type(mode="yn", text="それは本当なの？"))
     

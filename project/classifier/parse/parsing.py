@@ -225,6 +225,7 @@ class CulcParser:
             elif op == self.tname2TNUM("/"):    
                 value = int(v1 / v2)
             else:
+                print(v1, v2)
                 value = v1 and v2
             self.val_stack.push(value)
             # culc
@@ -443,7 +444,7 @@ class CulcParser:
         ltype = self._in_func(arg1, arg2)
         # print(ltype)
         self.val_stack.push( ltype )
-        # print(self.val_stack.stack)
+        print(self.val_stack.stack)
 
         if self.token != self.tname2TNUM(")"):
             print("in : ')' is required")

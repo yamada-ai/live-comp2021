@@ -2,6 +2,7 @@
 # from parse import lexical
 # from classifier import parse
 # import classifier
+from project.classifier.datatool import preprocess
 from project.classifier.parse.parsing import CulcParser
 from project.classifier.classify import Classifier
 # from project.classifier 
@@ -33,6 +34,11 @@ class Controller:
         }
         self.next_actID = []
         self.set_current_state()
+
+        self.is_prev_QA = 0
+        self.QA_id = {}
+        self.is_continue_QA = False
+        # self.is_prev_QA = 0
 
         # self.update_next(self.current_state)
     
@@ -71,15 +77,7 @@ class Controller:
                     self.current_ID["act"] = ac["act_id"]
                     self.current_act = ac
                     break
-        # # change_phase
-        # next act がnext id list にあるのか？
-        # if self.next_actID[0] not in next_act_id_list:
-        #     change_phase_rule = self.current_phase["change_phase"]
-        #     self.parser.set_act_temp(self.next_actID[0])
-        #     for rule in change_phase_rule:
-        #         if self.parser.parsing(rule["condition"]):
-        #             self.current_ID["act"] = 0
-        #             self.current_ID["phase"] = rule["next"]
+
         change_phase_rule = self.current_phase["change_phase"]
         # self.parser.set_act_temp(self.next_actID[0])
         for rule in change_phase_rule:
@@ -106,28 +104,55 @@ class Controller:
 
         # topic分類
         # 1. QA
-
-        # 決定した topic のルールで発話選択
-        t = self.check_change_topic_rule() 
-        # print("topic:", t)
-        if t >= 0:
-            self.set_current_state()
-            utt = self.current_act["reply"]
+        qa_utt = ""
+        # qa_utt = self.check_QA_rules()
+        # print(qa_utt)
+        if qa_utt != "":
+            self.is_prev_QA = True
+            return qa_utt
         else:
-            utt = self.go2next_act()
-            # self.set_current_state()
-        return utt
+            # 決定した topic のルールで発話選択
+            t = self.check_change_topic_rule() 
+            # print("topic:", t)
+            if t >= 0:
+                self.set_current_state()
+                utt = self.current_act["reply"]
+            else:
+                utt = self.go2next_act()
+                # self.set_current_state()
+            self.stateID_history.append(self.current_ID)
+            self.is_prev_QA = False
+            return utt
 
     def persing(self, code):
         print("code: {0}".format(code))
 
         print(self.parser.parsing(code))  
-    
+
     def check_QA_rules(self):
+        utt = ""
         for ac in self.QA_rule["qa_init_phase"]["act"]:
             # 条件部で発火した場合
             if self.parser.parsing(ac["condition"]):
-                pass
+                utt = ac["reply"]
+                self.current_ID["act"] = ac["act_id"]
+                next_id = ac["next"][0]
+                # continue QA
+                if next_id > 99:
+                    self.is_continue_QA = True
+                # 98
+                elif next_id == 98:
+                    # 98 で元のactに戻る
+                    self.current_ID["act"] = self.stateID_history[-1]["act"]
+                # 99
+                else:
+                    # 99 で次のphase へ行く？
+                    # 現状はそのまま 98 と同じ挙動
+                    self.current_ID["act"] = self.stateID_history[-1]["act"]
+                break
+        return utt
+        
+
     
     def check_change_topic_rule(self):
         for topic in self.topic_change_rules:
