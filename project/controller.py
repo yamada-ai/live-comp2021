@@ -83,9 +83,19 @@ class Controller:
         for rule in change_phase_rule:
             if self.parser.parsing(rule["condition"]):
                 print("change phase")
-                self.current_ID["act"] = 0
+                # これがダメ
+                # self.current_ID["act"] = 0
                 self.current_ID["phase"] = rule["next"][0]
-                self.set_current_state()
+                for ph in self.current_topic:
+                    if ph["phase_id"] == self.current_ID["phase"]:
+                        for ac in ph["act"]:
+                            if self.parser.parsing(ac["condition"]):
+                                self.current_ID["act"] = ac["act_id"]
+                                self.current_act = ac
+                                self.set_current_state()
+                                break
+                        break
+                # self.set_current_state()
                     # print(self.current_ID)
                 # self.check_change_topic_rule
         # print(self.current_ID)
@@ -105,16 +115,16 @@ class Controller:
         # topic分類
         # 1. QA
         qa_utt = ""
-        # qa_utt = self.check_QA_rules()
-        # print(qa_utt)
+        qa_utt = self.check_QA_rules()
+        print(qa_utt)
         if qa_utt != "":
             self.is_prev_QA = True
             return qa_utt
         else:
             # 決定した topic のルールで発話選択
             t = self.check_change_topic_rule() 
-            # print("topic:", t)
             if t >= 0:
+                print("change topic:",t)
                 self.set_current_state()
                 utt = self.current_act["reply"]
             else:
@@ -134,6 +144,7 @@ class Controller:
         for ac in self.QA_rule["qa_init_phase"]["act"]:
             # 条件部で発火した場合
             if self.parser.parsing(ac["condition"]):
+                print(ac["condition"])
                 utt = ac["reply"]
                 self.current_ID["act"] = ac["act_id"]
                 next_id = ac["next"][0]
@@ -155,6 +166,7 @@ class Controller:
 
     
     def check_change_topic_rule(self):
+        t = -1
         for topic in self.topic_change_rules:
             if topic["topic_id"] == self.current_ID["topic"]:
                 for rule in topic["change_topic"]:
@@ -163,10 +175,22 @@ class Controller:
                         # print("change topic")
                         self.current_ID["topic"] = rule["next"][0]
                         self.current_ID["phase"] = 0
-                        self.current_ID["act"]  = 0
-                        return rule["next"][0]
+                        # self.current_ID["act"]  = 0
+                        t =  rule["next"][0]
+                        break
                 break
-        return -1
+        if t >=0:
+            current_topic = self.topic_rules[self.current_ID["topic"]]["phase"]
+            for ph in current_topic:
+                if ph["phase_id"] == self.current_ID["phase"]:
+                    for ac in ph["act"]:
+                        if self.parser.parsing(ac["condition"]):
+                            self.current_ID["act"] = ac["act_id"]
+                            self.current_act = ac
+                            self.set_current_state()
+                            break
+                    break
+        return t
         
 
     # ルールの読み込み
