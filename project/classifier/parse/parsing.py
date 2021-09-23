@@ -1,3 +1,4 @@
+from math import fabs
 from project.classifier.parse.lexical import Tokenizer
 from project.classifier.parse.lexical import Token
 
@@ -72,13 +73,13 @@ class CulcParser:
         if res < 0:
             print("failure Lexical Analyze")
             
-            return -1
+            return False
 
         self.token = self.next_token()
         result = self.condition_statement()
         if result < 0:
-            print(code)
-            return -1
+            # print(code)
+            return False
         return self.val_stack.pop()
     
     # "if" -> 0
@@ -225,7 +226,7 @@ class CulcParser:
             elif op == self.tname2TNUM("/"):    
                 value = int(v1 / v2)
             else:
-                print(v1, v2)
+                # print(v1, v2)
                 value = v1 and v2
             self.val_stack.push(value)
             # culc
@@ -234,14 +235,13 @@ class CulcParser:
             
     def factor(self):
         
-        if self.token in self.constant_t:
+        if self.token in self.constant_t or self.token in self.func_name:
             result = self.constant()
             return result
 
         elif self.token == self.tname2TNUM("("):
             # print(self.token)
             self.token = self.next_token()
-            # print(self.token)
             # return -1
             result = self.expression()
             if result == -1:
@@ -268,15 +268,7 @@ class CulcParser:
             # 
             return result
         
-        # function zone
-        elif self.token in self.func_name:
-            if self.token == self.tname2TNUM("in"):
-                result = self._in()
-            else:
-                result = self._classify(self.token.surface)
 
-            return result
-        
         else:
             print("factor error : unknown")
             return -1
@@ -375,6 +367,17 @@ class CulcParser:
                 self.token = self.next_token()
                 self.val_stack.push(value)
                 return Ltype.INT
+        
+        # function zone
+        elif self.token in self.func_name:
+            if self.token == self.tname2TNUM("in"):
+                # print("in come")
+                result = self._in()
+            else:
+                result = self._classify(self.token.surface)
+
+            return result
+        
 
         
     def multiplicative_operator(self)  -> Ltype:
@@ -444,12 +447,12 @@ class CulcParser:
         ltype = self._in_func(arg1, arg2)
         # print(ltype)
         self.val_stack.push( ltype )
-        print(self.val_stack.stack)
+        # print(self.val_stack.stack)
 
         if self.token != self.tname2TNUM(")"):
             print("in : ')' is required")
             return -1
-        
+        self.token = self.next_token()
         return Ltype.BOOL
     
     def _in_func(self, arg1, arg2):
@@ -493,6 +496,7 @@ class CulcParser:
             return -1
         
         self.val_stack.push(self.classifier.predict_type(mode, arg1))
+        self.token = self.next_token()
 
         return Ltype.BOOL
 

@@ -6,13 +6,14 @@ import numpy as np
 from pkg_resources import normalize_path
 import spacy
 import re
-import neologdn
+# import neologdn
 
 class Preprocessor:
 
     def __init__(self) -> None:
         self.nlp = spacy.load('ja_ginza')
-        self.nlp.add_pipe('sentencizer')
+        # self.nlp.add_pipe('sentencizer')
+        self.nlp.add_pipe(self.nlp.create_pipe('sentencizer'))
 
         # 数字
         self.DELETE_PATTERN_1 = re.compile(
@@ -45,7 +46,7 @@ class Preprocessor:
         text = self.DELETE_PATTERN_3.sub('', text)
 
         # normalization
-        text = neologdn.normalize(text)
+        # text = neologdn.normalize(text)
 
         return text
 

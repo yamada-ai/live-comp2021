@@ -44,8 +44,8 @@ if __name__ == "__main__":
         # コントローラーに context の情報をセット
         print()
 
-    # code = "if (yn(usr[-1]) or how(usr[-1])) and in(['居酒屋', 'お店','スナック', '飲み屋', '酒場', 'バー', '外'], usr[-1])"
-    # code = "if False and false"
-    # controller.parser.set_usr(["今忙しい", "いいよ"])
-    # print(controller.persing(code))
+    code = "if (yn(usr[-1]) or how(usr[-1])) and in(['居酒屋', 'お店','スナック', '飲み屋', '酒場', 'バー', '外'], usr[-1])"
+    # code = "if yn(usr[-1]) or how(usr[-1]) "
+    controller.parser.set_usr(["今忙しい", "いいよ"])
+    print(controller.persing(code))
 

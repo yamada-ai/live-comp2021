@@ -23,7 +23,7 @@ class Classifier:
     def __init__(self, model_path="./models/", F_path="./X_y_data/") -> None:
         self.model_path = model_path
         self.F_path = F_path
-        self.modelM =maneger.DataManager(self.model_path)
+        self.modelM = maneger.DataManager(self.model_path)
         self.FM =  maneger.DataManager(self.F_path)
 
         self.remain_classes = "how what when where who why yn plain positive negative".split()
@@ -37,7 +37,7 @@ class Classifier:
         self.F.set_preprocessor(preprocess.Preprocessor())
     
     def predict_type(self, mode, text):
-        print(text)
+        # print(text)
         f = self.F.featurization(text)
         y = self.model.predict(f.reshape(1, -1))
         # print(self.classes_dict)
