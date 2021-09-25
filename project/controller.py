@@ -18,6 +18,7 @@ class Controller:
         self.classifier = Classifier(model_path="./project/classifier/models/", F_path="./project/classifier/X_y_data/")
         self.classifier.load_F("typeClassify_F2.pickle")
         self.classifier.load_model("typeClassify_M2.pickle")
+        self.classifier.load_dict("PN.pickle")
         self.parser.set_classifier(self.classifier)
         self._load_rules(rule_path)
 
