@@ -84,6 +84,7 @@ class Controller:
         for rule in change_phase_rule:
             if self.parser.parsing(rule["condition"]):
                 print("change phase")
+                # print("before", self.current_ID)
                 # これがダメ
                 # self.current_ID["act"] = 0
                 self.current_ID["phase"] = rule["next"][0]
@@ -96,6 +97,7 @@ class Controller:
                                 self.set_current_state()
                                 break
                         break
+                break
                 # self.set_current_state()
                     # print(self.current_ID)
                 # self.check_change_topic_rule
@@ -117,7 +119,7 @@ class Controller:
         # 1. QA
         qa_utt = ""
         qa_utt = self.check_QA_rules()
-        print(qa_utt)
+        # print(qa_utt)
         if qa_utt != "":
             self.is_prev_QA = True
             return qa_utt
