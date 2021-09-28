@@ -25,9 +25,7 @@ class PN_Classifier():
         POSes = self.pre.get_POS(_doc)
         adv_score = 0
 
-        print(list(zip(lemmas, POSes)))
         for lemma, POS in zip(lemmas, POSes):
-            print(list(zip(lemma,POS)))
             for i, token in enumerate(list(zip(lemma,POS))):
                 score = self.get_word_pn_score(token[0], _dict)
                 text += token[0]
@@ -57,6 +55,6 @@ class PN_Classifier():
     def predict(self, _text, _dict):
         score, words = self.get_document_pn_score(_text, _dict)
         if score > self.P_Threshold :
-            return 'positive'
+            return 8    #'positive'
         elif score < self.N_Threshold:
-            return 'negative'
+            return 9    #'negative'

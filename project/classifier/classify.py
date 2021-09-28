@@ -11,7 +11,7 @@ import sys
 from project.classifier.train import feature
 from project.classifier.datatool import maneger
 from project.classifier.datatool import preprocess
-from train.PN_classifier import PN_Classifier
+from project.classifier.train.PN_classifier import PN_Classifier
 
 sys.modules["feature"] = feature
 sys.modules["manager"] = maneger
@@ -43,8 +43,10 @@ class Classifier:
     def predict_type(self, mode, text):
         f = self.F.featurization(text)
         y = self.model.predict(f.reshape(1, -1))
-        # print(self.PNmodel.predict(text, self.PNdict))
+        pn = self.PNmodel.predict(text, self.PNdict)
         if self.classes_dict[mode] == y:
+            return True
+        elif self.classes_dict[mode] == pn:
             return True
         else:
             return False
