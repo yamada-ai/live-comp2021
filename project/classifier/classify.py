@@ -11,7 +11,7 @@ import sys
 from project.classifier.train import feature
 from project.classifier.datatool import maneger
 from project.classifier.datatool import preprocess
-# from train.feature import Feature
+from project.classifier.train.PN_classifier import PN_Classifier
 
 sys.modules["feature"] = feature
 sys.modules["manager"] = maneger
@@ -31,18 +31,22 @@ class Classifier:
 
     def load_model(self, name="typeClassify_M2.pickle"):
         self.model = self.modelM.load_data(name)
+        self.PNmodel = PN_Classifier()
     
     def load_F(self, name="typeClassify_F2.pickle"):
         self.F = self.FM.load_data(name)
         self.F.set_preprocessor(preprocess.Preprocessor())
+
+    def load_dict(self, name = "PN.pickle"):
+        self.PNdict = self.FM.load_data(name)
     
     def predict_type(self, mode, text):
-        # print(text)
         f = self.F.featurization(text)
         y = self.model.predict(f.reshape(1, -1))
-        # print(self.classes_dict)
-        # print(y)
+        pn = self.PNmodel.predict(text, self.PNdict)
         if self.classes_dict[mode] == y:
+            return True
+        elif self.classes_dict[mode] == pn:
             return True
         else:
             return False

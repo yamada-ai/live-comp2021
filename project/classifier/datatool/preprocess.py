@@ -12,8 +12,10 @@ class Preprocessor:
 
     def __init__(self) -> None:
         self.nlp = spacy.load('ja_ginza')
-        # self.nlp.add_pipe('sentencizer')
-        self.nlp.add_pipe(self.nlp.create_pipe('sentencizer'))
+        # if you choose spacy version 3.0 or more
+        self.nlp.add_pipe('sentencizer')
+        # if you choose spacy under 3.0 
+        # self.nlp.add_pipe(self.nlp.create_pipe('sentencizer'))
 
         # 数字
         self.DELETE_PATTERN_1 = re.compile(
