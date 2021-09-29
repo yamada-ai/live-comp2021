@@ -35,7 +35,7 @@
           "next": [2]
         },
         {
-          "condition": "if ((actID = 0) or (actID = 1)) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if ((actID = 0) or (actID = 1)) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -59,7 +59,7 @@
           "next": [10]
         },
         {
-          "condition": "if ((actID = 0) or (actID = 1)) and (topicTurn = 6)",
+          "condition": "if ((actID = 0) or (actID = 1)) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -75,7 +75,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 2) and in(['体調が思わしくな', '体調不良', '病'], usr[-2])",
+          "condition": "if (actID = 2) and in(['体調', '病'], usr[-2])",
           "next": [3]
         },
         {
@@ -99,7 +99,7 @@
           "next": [10]
         },
         {
-          "condition": "if (actID = 2) and (topicTurn = 6)",
+          "condition": "if (actID = 2) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -125,7 +125,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -149,7 +149,7 @@
           "next": [10]
         },
         {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
+          "condition": "if (actID = 0) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -175,7 +175,7 @@
           "next": [1]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -199,7 +199,7 @@
           "next": [10]
         },
         {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
+          "condition": "if (actID = 0) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -249,7 +249,7 @@
           "next": [10]
         },
         {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
+          "condition": "if (actID = 0) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -279,7 +279,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -299,7 +299,7 @@
           "next": [10]
         },
         {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
+          "condition": "if (actID = 0) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -314,7 +314,7 @@
         {
           "act_id": 0,
           "condition": "if True",
-          "reply": "まあ、基本的に今回は配達サービス使いますけど、嫌なら適当にスーパーでそろえて貰っても良いですし。これで拒む理由もないんじゃないですか?",
+          "reply": "まあ、基本的に今回は配達サービス使いますけど、嫌なら適当にスーパーでそろえて貰っても良いですし。これなら安いですし拒む理由もないんじゃないですか?",
           "qa_reply": "楽しみになってきたでしょ? 参加しましょう!",
           "next": [0]
         }
@@ -329,7 +329,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -349,7 +349,7 @@
           "next": [10]
         },
         {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
+          "condition": "if (actID = 0) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -379,7 +379,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -399,7 +399,7 @@
           "next": [10]
         },
         {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
+          "condition": "if (actID = 0) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -429,7 +429,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -445,11 +445,11 @@
           "next": [6]
         },
         {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [11]
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ', 'あいつ'], usr[-1]))",
+          "next": [10]
         },
         {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
+          "condition": "if (actID = 0) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -479,7 +479,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -503,7 +503,7 @@
           "next": [10]
         },
         {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
+          "condition": "if (actID = 0) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -572,7 +572,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 2)",
+          "condition": "if (actID = 2)",
           "next": [17]
         }
       ]
@@ -604,7 +604,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 2)",
+          "condition": "if (actID = 2)",
           "next": [18]
         }
       ]
@@ -643,7 +643,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 3)",
+          "condition": "if (actID = 3)",
           "next": [19]
         }
       ]
@@ -668,7 +668,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 1)",
+          "condition": "if (actID = 1)",
           "next": [20]
         }
       ]
@@ -704,7 +704,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if  (act_id = 0)",
+          "condition": "if  (actID = 0)",
           "next": [12]
         }
       ]
@@ -722,7 +722,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 0)",
+          "condition": "if (actID = 0)",
           "next": [13]
         }
       ]
@@ -740,7 +740,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 0)",
+          "condition": "if (actID = 0)",
           "next": [14]
         }
       ]
@@ -758,7 +758,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 0)",
+          "condition": "if (actID = 0)",
           "next": [15]
         }
       ]
@@ -776,7 +776,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 0)",
+          "condition": "if (actID = 0)",
           "next": [16]
         }
       ]
@@ -787,8 +787,8 @@
         {
           "act_id": 0,
           "condition": "if True",
-          "reply": "あ、でも当日になってみればわかりませんよ。テンション的な問題なら。",
-          "qa_reply": "あ、そうですよ。当日になってみればわかりませんよ。テンション的な問題なら。",
+          "reply": "あ、でも当日になってみればわかりませんよ。なんとなくな感じなら。",
+          "qa_reply": "あ、そうですよ。当日になってみればわかりませんよ。なんとなくな感じなら。",
           "next": [0]
         }
       ],
