@@ -33,6 +33,11 @@ class Controller:
             "act"   : 0,
             "phase" : 0,
         }
+        self.current_turn = {
+            "topic" : 0,
+            # "act"   : 0,
+            "phase" : 0
+        }
         self.next_actID = []
         self.set_current_state()
 
@@ -78,18 +83,19 @@ class Controller:
                     self.current_ID["act"] = ac["act_id"]
                     self.current_act = ac
                     break
+        
+        self.current_turn["phase"] += 1
 
         change_phase_rule = self.current_phase["change_phase"]
         # self.parser.set_act_temp(self.next_actID[0])
         for rule in change_phase_rule:
             if self.parser.parsing(rule["condition"]):
                 print("change phase")
-                # print("before", self.current_ID)
-                # これがダメ
                 # self.current_ID["act"] = 0
                 self.current_ID["phase"] = rule["next"][0]
                 for ph in self.current_topic:
                     if ph["phase_id"] == self.current_ID["phase"]:
+                        self.current_turn["phase"] = 0
                         for ac in ph["act"]:
                             if self.parser.parsing(ac["condition"]):
                                 self.current_ID["act"] = ac["act_id"]
@@ -98,12 +104,6 @@ class Controller:
                                 break
                         break
                 break
-                # self.set_current_state()
-                    # print(self.current_ID)
-                # self.check_change_topic_rule
-        # print(self.current_ID)
-        # print(self.next_actID)
-        # return self.current_act["reply"]
         if isinstance(self.current_act["reply"], str):
             return self.current_act["reply"]
         else:
@@ -114,6 +114,7 @@ class Controller:
         self.user.append(context[-1])
         self.parser.set_usr(self.user)
         self.parser.set_ID(self.current_ID)
+        self.parser.set_turn(self.current_turn)
 
         # topic分類
         # 1. QA
@@ -128,12 +129,15 @@ class Controller:
             t = self.check_change_topic_rule() 
             if t >= 0:
                 print("change topic:",t)
+                self.current_turn["topic"] = 0
                 self.set_current_state()
                 utt = self.current_act["reply"]
+                self.current_turn["topic"] += 1
             else:
                 utt = self.go2next_act()
                 # self.set_current_state()
             self.stateID_history.append(self.current_ID)
+            self.current_turn["topic"] += 1
             self.is_prev_QA = False
             return utt
 

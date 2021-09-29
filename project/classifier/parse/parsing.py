@@ -61,6 +61,11 @@ class CulcParser:
         self.var["phaseID"] = current_ID["phase"]
         self.var["actID"] = current_ID["act"]
     
+    def set_turn(self, current_turn):
+        self.var["topicTurn"] = current_turn["topic"]
+        self.var["phaseTurn"] = current_turn["phase"]
+        # self.var["actID"] = current_ID["act"]
+    
     def set_act_temp(self, tmp_act_id):
         self.var["actID"] = tmp_act_id
     
