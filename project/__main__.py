@@ -1,51 +1,80 @@
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.update import Update
+import time, sys, logging
+
 from project.classifier.datatool import preprocess
-import sys
 sys.path.append("project/classifier/")
 from project.controller import Controller
 from project.classifier import datatool
 
+# Enable logging
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
+)
+logger = logging.getLogger(__name__)
 
-def sys_utterance(text, turn):
-    print("sys[{0}]: {1}".format(turn, text))
+"""
+python-telegram-bot==12.0.0で動作確認済み
+"""
+class MMIBot:
+    def __init__(self):
+        self.user_context = {}
+        # アクセストークン
+        self.token = "1933048070:AAE1V2V_2mawTxIrxHQMxVQHOmgZeAlay3I"
+        # 1対話の長さ(ユーザの発話回数)．ここは固定とする
+        self.dialogue_length = 15
+        # システムからの最初の発話
+        self.init_utt = "湯川先輩お疲れ様です! 今お時間いいですか?"
+        self.rule_path = "./project/rule/"
+        self.controller = Controller(self.rule_path)
 
-# def user_utterance(text, turn):
-#     print("usr[{0}]: {1}".format(turn, text))
+    def start(self, bot, update):
+        # 対話ログと発話回数を初期化
+        self.user_context[update.message.from_user.id] = {"context": [], "count": 0}
+        update.message.reply_text(self.init_utt)
 
-def wait_user_utterance(turn):
-    utterance = input("usr[{0}]: ".format(turn))
-    return utterance
 
-if __name__ == "__main__":
-    print("start conversation")
+    def message(self, bot, update):
+        if update.message.from_user.id not in self.user_context:
+            self.user_context[update.message.from_user.id] = {"context": [], "count": 0}
 
-    init_utt = "湯川先輩お疲れ様です! 今お時間いいですか?"
-    rule_path = "./project/rule/"
-    controller = Controller(rule_path)
+        # ユーザ発話の回数を更新
+        self.user_context[update.message.from_user.id]["count"] += 1
 
-    turn_limit = 16
-    turn_mem = [0, 0]
+        # ユーザ発話をcontextに追加
+        self.user_context[update.message.from_user.id]["context"].append(update.message.text)
 
-    context = []
-    usr = []
-    for i in range(turn_limit):
-        if i==0:
-            sys_utterance(init_utt, i+1)
-            # user_utterance("嫌だ", i+1)
-            utterance = wait_user_utterance(i+1)
-            context.append(init_utt)
-            context.append(utterance)
-        else:
-            utt = controller.reply(context)
-            sys_utterance(utt, i+1)
-            utterance = wait_user_utterance(i+1)
-            context.append(utt)
-            context.append(utterance)
-        
-        # コントローラーに context の情報をセット
-        print()
+        # controllerのreplyメソッドによりcontextから発話を生成
+        send_message = self.controller.reply(self.user_context[update.message.from_user.id]["context"])
 
-    code = "if (yn(usr[-1]) or how(usr[-1])) and in(['居酒屋', 'お店','スナック', '飲み屋', '酒場', 'バー', '外'], usr[-1])"
-    # code = "if yn(usr[-1]) or how(usr[-1]) "
-    controller.parser.set_usr(["今忙しい", "いいよ"])
-    print(controller.persing(code))
+        # 送信する発話をcontextに追加
+        self.user_context[update.message.from_user.id]["context"].append(send_message)
+
+        # 発話を送信
+        update.message.reply_text(send_message)
+
+        if self.user_context[update.message.from_user.id]["count"] >= self.dialogue_length:
+            # 対話IDは unixtime:user_id:bot_username
+            unique_id = str(int(time.mktime(update.message["date"].timetuple()))) + u":" + str(update.message.from_user.id) + u":" + bot.username
+
+            update.message.reply_text(u"_FINISHED_:" + unique_id)
+            update.message.reply_text(u"対話終了です．エクスポートした「messages.html」ファイルを，フォームからアップロードしてください．")
+
+
+    def run(self):
+        updater = Updater(self.token)
+
+        dp = updater.dispatcher
+
+        dp.add_handler(CommandHandler("start", self.start))
+
+        dp.add_handler(MessageHandler(Filters.text, self.message))
+
+        updater.start_polling()
+
+        updater.idle()
+
+if __name__ == '__main__':
+    mybot = MMIBot()
+    mybot.run()
 
