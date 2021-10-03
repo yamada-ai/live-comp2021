@@ -1,6 +1,7 @@
 import pickle
 import os
 import dill
+import gensim
 
 class DataManager:
     def __init__(self, data_path, format_="pickle") -> None:
@@ -30,5 +31,11 @@ class DataManager:
         elif self.format_ == "dill":
             with open(self.data_path+name, "rb") as f:
                 obj = dill.load(f)
+            print("success load : {0}{1}".format(self.data_path, name))
+        elif self.format_ == "vec":
+            obj = gensim.models.KeyedVectors.load_word2vec_format(self.data_path+name)
+            print("success load : {0}{1}".format(self.data_path, name))
+        elif self.format_ == "bin":
+            obj =gensim.models.FastText.load_fasttext_format(self.data_path+name)
             print("success load : {0}{1}".format(self.data_path, name))
         return obj

@@ -2,19 +2,47 @@ import math
 from project.classifier.datatool.preprocess import Preprocessor
 
 class PN_Classifier():
-    def __init__(self):
+    def __init__(self, vec_model):
+
         self.NEGATION = ['ない', 'ず', 'ぬ']
         self.PN_AMORPHOUS = []
         self.pre = Preprocessor()
+
         self.P_Threshold = 0.5
         self.N_Threshold = -0.5
+        self.vec_model = vec_model
+        
+        # 極性が高いかつ品詞の違う単語・慣用句表現を設定
+        self.posi_list = ['満足', '幸せ','喜び','善','賞賛','賢い','向上','あっぱれ','うれしい','徳','才能', '大事']
+        self.nega_list = ['残念', '不幸せ','悲しみ','悪','非難','愚か','低下', '一喝', '哀しい', '罪', '平凡', '邪魔']
 
     def get_word_pn_score(self, _word, _dict):
         res = 0
         if _word in _dict:
             res = _dict[_word]['score']
         else :
-            res = 0
+            res = self.get_unknownwords_score(_word, _dict)
+        return res
+    
+    def get_unknownwords_score(self, _word, _dict):
+        res = 0
+        if self.vec_model is None:
+            return res
+        pn_list = []
+        for pg in self.posi_list:
+            try:
+                pn_list.append(self.vec_model.similarity(pg, _word) * (1))
+            except KeyError:
+                continue
+        for ng in self.nega_list:
+            try:
+                print(self.vec_model.similarity(ng, _word) * (-1))
+                pn_list.append(self.vec_model.similarity(ng, _word) * (-1))
+            except KeyError:
+                continue
+        if len(pn_list) != 0:
+            res = sum(pn_list) / len(pn_list)
+        # 名詞・形容詞などは値が小さくなるため調整が必要
         return res
 
     def get_document_pn_score(self, _doc, _dict):
