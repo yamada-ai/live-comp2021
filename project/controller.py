@@ -104,10 +104,19 @@ class Controller:
                                 break
                         break
                 break
-        if isinstance(self.current_act["reply"], str):
-            return self.current_act["reply"]
+
+        if self.is_prev_QA:
+            print("qa_reply")
+            if isinstance(self.current_act["qa_reply"], str):
+                return self.current_act["qa_reply"]
+            else:
+                return random.choice(self.current_act["qa_reply"])
         else:
-            return random.choice(self.current_act["reply"])
+
+            if isinstance(self.current_act["reply"], str):
+                return self.current_act["reply"]
+            else:
+                return random.choice(self.current_act["reply"])
     
     def reply(self, context):
         # ユーザ発話を追加
@@ -134,17 +143,34 @@ class Controller:
                 utt = self.current_act["reply"]
                 self.current_turn["topic"] += 1
             else:
-                utt = self.go2next_act()
+                if self.is_continue_QA:
+                    utt = self.QA_over100_reply()
+                else:
+                    utt = self.go2next_act()
                 # self.set_current_state()
-            self.stateID_history.append(self.current_ID)
-            self.current_turn["topic"] += 1
-            self.is_prev_QA = False
+                    self.stateID_history.append(self.current_ID)
+                    self.current_turn["topic"] += 1
+                self.is_prev_QA = False
             return utt
 
     def persing(self, code):
         print("code: {0}".format(code))
 
         print(self.parser.parsing(code))  
+
+    def QA_over100_reply(self):
+        for into in self.QA_rule["qa_init_phase"]["into_phase"]:
+            if self.parser.parsing(into["condition"]):
+                next_id = into["next"][0]
+                break
+
+        # for ph in self.QA_rule["phase"]:
+        #     if ph["phase_id"] == self.current_ID["phase"]:
+        #         for ac in ph["act"]:
+        #             if self.parser.parsing(ac["condition"]):
+        #                 # self.current_ID["act"] = ac["act_id"]
+                        # self.current_act = 
+                        
 
     def check_QA_rules(self):
         utt = ""
@@ -166,7 +192,23 @@ class Controller:
                 else:
                     # 99 で次のphase へ行く？
                     # 現状はそのまま 98 と同じ挙動
-                    self.current_ID["act"] = self.stateID_history[-1]["act"]
+                    # self.current_ID["act"] = self.stateID_history[-1]["act"]
+                    # 直前のphase_id を取得したい
+                    prev_phase_id = self.stateID_history[-1]["phase"]
+                    for i, ph in enumerate(self.current_topic):
+                        if ph["phase_id"] == prev_phase_id:
+                            self.current_turn["phase"] = 0
+                            # 配列上で次に格納されたphaseへ移行
+                            next_phase =  self.current_topic[i+1]
+                            self.current_ID["phase"] = next_phase["phase_id"]
+                            for ac in ph["act"]:
+                                if self.parser.parsing(ac["condition"]):
+                                    self.current_ID["act"] = ac["act_id"]
+                                    self.current_act = ac
+                                    self.set_current_state()
+                                    break
+                            break
+                    # pass
                 break
         return utt
         
