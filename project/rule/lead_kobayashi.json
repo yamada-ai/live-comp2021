@@ -536,11 +536,11 @@
       ],
       "change_phase": [
         {
-          "condition": "if (phaseID = 0) and in(['いや','違', 'ない', '異', 'いいえ', 'イイエ'], usr[-1])",
+          "condition": "if (actID = 0) and in(['いや','違', 'ない', '異', 'いいえ', 'イイエ'], usr[-1])",
           "next": [11]
         },
         {
-          "condition": "if (phaseID = 0)",
+          "condition": "if (actID = 0)",
           "next": [10]
         }
       ]
@@ -789,7 +789,13 @@
           "condition": "if True",
           "reply": "あ、でも当日になってみればわかりませんよ。なんとなくな感じなら。",
           "qa_reply": "あ、そうですよ。当日になってみればわかりませんよ。なんとなくな感じなら。",
-          "next": [0]
+          "next": [1]
+        },
+        {
+          "act_id": 1,
+          "condition": "if True",
+          "reply": "まあ、少しですけどまだ時間もありますし、もうちょっと考えておいてくださいよ。また連絡しますから。",
+          "next": [1]
         }
       ],
       "change_phase": [
