@@ -24,14 +24,16 @@ class Classifier:
         self.model_path = model_path
         self.F_path = F_path
         self.modelM = maneger.DataManager(self.model_path)
+        self.modelWIKI = maneger.DataManager(self.model_path, "vec")
         self.FM =  maneger.DataManager(self.F_path)
 
         self.remain_classes = "how what when where who why yn plain positive negative".split()
         self.classes_dict = dict(zip(self.remain_classes, list(range(len(self.remain_classes)))))
 
-    def load_model(self, name="typeClassify_M2.pickle"):
+    def load_model(self, name="typeClassify_M2.pickle", name_wiki = "wiki.ja.vec"):
         self.model = self.modelM.load_data(name)
-        self.PNmodel = PN_Classifier()
+        # self.PNmodel = PN_Classifier(self.modelWIKI.load_data(name_wiki))
+        self.PNmodel = PN_Classifier(None)
     
     def load_F(self, name="typeClassify_F2.pickle"):
         self.F = self.FM.load_data(name)
