@@ -41,7 +41,7 @@ class Controller:
         }
         self.next_actID = []
         self.set_current_state()
-
+        self.stateID_history.append(copy.deepcopy(self.current_ID))
         self.is_prev_QA = 0
         self.QA_id = {}
 
