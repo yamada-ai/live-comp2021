@@ -156,7 +156,6 @@ class Controller:
             # 決定した topic のルールで発話選択
             t = self.check_change_topic_rule()
             if t >= 0:
-
                 self.qa_turns = 0
                 print("change topic:",t)
                 self.current_turn["topic"] = 0
@@ -165,6 +164,8 @@ class Controller:
                 utt = self.current_act["reply"]
                 self.current_turn["topic"] += 1
                 self.is_prev_QA = False
+                self.is_continue_QA = False
+                self.is_next_QA_phase = False
             else:
                 if self.is_continue_QA:
                     if self.is_next_QA_phase:
@@ -180,8 +181,34 @@ class Controller:
                     self.current_turn["topic"] += 1
                     self.is_prev_QA = False
             
+            # topic change << next_QA version
+            # if self.is_continue_QA:
+            #     if self.is_next_QA_phase:
+            #         utt = self.QA_phase()
+            #     else:
+            #         utt = self.QA_over100_reply()
+            
+            # else:
+            #     t = self.check_change_topic_rule()
+            #     if t >= 0:
+            #         self.qa_turns = 0
+            #         print("change topic:",t)
+            #         self.current_turn["topic"] = 0
+            #         # change_topic の処理が必要な気がする
+            #         self.set_current_state()
+            #         utt = self.current_act["reply"]
+            #         self.current_turn["topic"] += 1
+            #         self.is_prev_QA = False
+            #     else:
+            #         self.qa_turns = 0
+            #         utt = self.go2next_act()
+            #     # self.set_current_state()
+            #         # self.stateID_history.append(self.current_ID)
+            #         self.current_turn["topic"] += 1
+            #         self.is_prev_QA = False
+            
             self.stateID_history.append(copy.deepcopy(self.current_ID))
-            # print(self.current_ID)
+            # # print(self.current_ID)
             return utt
 
     def persing(self, code):
@@ -191,6 +218,7 @@ class Controller:
 
     def QA_over100_reply(self):
         self.qa_turns += 1
+        print(self.current_ID)
         for into in self.QA_rule["qa_init_phase"]["into_phase"]:
             if self.parser.parsing(into["condition"]):
                 next_id = into["next"][0]
@@ -216,8 +244,11 @@ class Controller:
             self.current_ID = copy.deepcopy( self.stateID_history[-self.qa_turns])
             self.is_continue_QA = False
             self.set_current_state()
-            print(self.current_act)
-            utt += self.current_act["qa_reply"]
+            print(self.stateID_history)
+            if isinstance(self.current_act["qa_reply"], str):
+                utt += self.current_act["qa_reply"]
+            else:
+                utt += random.choice(self.current_act["qa_reply"])
 
         elif self.next_qa_actID[0] == 99:
             self.is_next_QA_phase = False
@@ -237,7 +268,11 @@ class Controller:
                             break
                     break
             self.is_continue_QA = False
-            utt += self.current_act["qa_reply"]
+            # utt += self.current_act["qa_reply"]
+            if isinstance(self.current_act["qa_reply"], str):
+                utt += self.current_act["qa_reply"]
+            else:
+                utt += random.choice(self.current_act["qa_reply"])
         # 次もQA
         else:
             self.is_next_QA_phase = True
@@ -265,7 +300,10 @@ class Controller:
             self.current_ID = copy.deepcopy( self.stateID_history[-self.qa_turns])
             self.is_continue_QA = False
             self.set_current_state()
-            utt += self.current_act["qa_reply"]
+            if isinstance(self.current_act["qa_reply"], str):
+                utt += self.current_act["qa_reply"]
+            else:
+                utt += random.choice(self.current_act["qa_reply"])
 
         elif self.next_qa_actID[0] == 99:
             self.is_next_QA_phase = False
@@ -288,7 +326,11 @@ class Controller:
                             break
                     break
             self.is_continue_QA = False
-            utt += self.current_act["qa_reply"]
+            # utt += self.current_act["qa_reply"]
+            if isinstance(self.current_act["qa_reply"], str):
+                utt += self.current_act["qa_reply"]
+            else:
+                utt += random.choice(self.current_act["qa_reply"])
         # 次もQA
         else:
             self.is_next_QA_phase = True
