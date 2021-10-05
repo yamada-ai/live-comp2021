@@ -6,7 +6,7 @@ import numpy as np
 from pkg_resources import normalize_path
 import spacy
 import re
-# import neologdn
+import neologdn
 
 class Preprocessor:
 
@@ -48,7 +48,7 @@ class Preprocessor:
         text = self.DELETE_PATTERN_3.sub('', text)
 
         # normalization
-        # text = neologdn.normalize(text)
+        text = neologdn.normalize(text)
 
         return text
 
@@ -94,9 +94,8 @@ class Preprocessor:
         elif isinstance(sentences, list):
             docs = list(self.nlp.pipe(sentences, disable=['ner']))
             for doc in docs:
-                doc = self.clean_text(doc)
                 text = [str(s) for s in doc.sents]
-                texts.extend(self.clean_text(str(text)))
+                texts.append(self.clean_text(str(text)))
         else:
             return None
         docs = list(self.nlp.pipe(texts, disable=['ner']))
