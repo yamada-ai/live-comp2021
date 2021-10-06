@@ -35,7 +35,7 @@
           "next": [2]
         },
         {
-          "condition": "if ((actID = 0) or (actID = 1)) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if ((actID = 0) or (actID = 1)) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -55,11 +55,11 @@
           "next": [7]
         },
         {
-          "condition": "if ((actID = 0) or (actID = 1)) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
+          "condition": "if ((actID = 0) or (actID = 1)) and in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1])",
           "next": [10]
         },
         {
-          "condition": "if ((actID = 0) or (actID = 1)) and (topicTurn = 6)",
+          "condition": "if ((actID = 0) or (actID = 1)) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -75,7 +75,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 2) and in(['体調が思わしくな', '体調不良', '病'], usr[-2])",
+          "condition": "if (actID = 2) and in(['体調', '病'], usr[-2])",
           "next": [3]
         },
         {
@@ -95,11 +95,11 @@
           "next": [7]
         },
         {
-          "condition": "if (actID = 2) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-2]))",
+          "condition": "if (actID = 2) and in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-2])",
           "next": [10]
         },
         {
-          "condition": "if (actID = 2) and (topicTurn = 6)",
+          "condition": "if (actID = 2) and (topicTurn > 5)",
           "next": [9]
         },
         {
@@ -121,11 +121,19 @@
       ],
       "change_phase": [
         {
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
+          "next": [10]
+        },
+        {
+          "condition": "if (actID = 0) and (topicTurn > 5)",
+          "next": [9]
+        },
+        {
           "condition": "if (actID = 0) and in(['出張', '行事', '会議', '修羅場'],usr[-1])",
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -143,14 +151,6 @@
         {
           "condition": "if (actID = 0) and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
-        },
-        {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [10]
-        },
-        {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
-          "next": [9]
         },
         {
           "condition": "if (actID = 0)",
@@ -171,11 +171,19 @@
       ],
       "change_phase": [
         {
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
+          "next": [10]
+        },
+        {
+          "condition": "if (actID = 0) and (topicTurn > 5)",
+          "next": [9]
+        },
+        {
           "condition": "if (actID = 0) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -193,14 +201,6 @@
         {
           "condition": "if (actID = 0) and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
-        },
-        {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [10]
-        },
-        {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
-          "next": [9]
         },
         {
           "condition": "if (actID = 0)",
@@ -221,6 +221,14 @@
       ],
       "change_phase": [
         {
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
+          "next": [10]
+        },
+        {
+          "condition": "if (actID = 0) and (topicTurn > 5)",
+          "next": [9]
+        },
+        {
           "condition": "if (actID = 0) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
@@ -243,14 +251,6 @@
         {
           "condition": "if (actID = 0) and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
-        },
-        {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [10]
-        },
-        {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
-          "next": [9]
         },
         {
           "condition": "if (actID = 0)",
@@ -271,6 +271,14 @@
       ],
       "change_phase": [
         {
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
+          "next": [10]
+        },
+        {
+          "condition": "if (actID = 0) and (topicTurn > 5)",
+          "next": [9]
+        },
+        {
           "condition": "if (actID = 0) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
@@ -279,7 +287,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -295,14 +303,6 @@
           "next": [7]
         },
         {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [10]
-        },
-        {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
-          "next": [9]
-        },
-        {
           "condition": "if (actID = 0)",
           "next": [8]
         }
@@ -314,12 +314,20 @@
         {
           "act_id": 0,
           "condition": "if True",
-          "reply": "まあ、基本的に今回は配達サービス使いますけど、嫌なら適当にスーパーでそろえて貰っても良いですし。これで拒む理由もないんじゃないですか?",
+          "reply": "まあ、基本的に今回は配達サービス使いますけど、嫌なら適当にスーパーでそろえて貰っても良いですし。これなら安いですし拒む理由もないんじゃないですか?",
           "qa_reply": "楽しみになってきたでしょ? 参加しましょう!",
           "next": [0]
         }
       ],
       "change_phase": [
+        {
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
+          "next": [10]
+        },
+        {
+          "condition": "if (actID = 0) and (topicTurn > 5)",
+          "next": [9]
+        },
         {
           "condition": "if (actID = 0) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
@@ -329,7 +337,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -343,14 +351,6 @@
         {
           "condition": "if (actID = 0) and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
-        },
-        {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [10]
-        },
-        {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
-          "next": [9]
         },
         {
           "condition": "if (actID = 0)",
@@ -371,6 +371,14 @@
       ],
       "change_phase": [
         {
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
+          "next": [10]
+        },
+        {
+          "condition": "if (actID = 0) and (topicTurn > 5)",
+          "next": [9]
+        },
+        {
           "condition": "if (actID = 0) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
@@ -379,7 +387,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -393,14 +401,6 @@
         {
           "condition": "if (actID = 0) and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
-        },
-        {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [10]
-        },
-        {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
-          "next": [9]
         },
         {
           "condition": "if (actID = 0)",
@@ -421,6 +421,14 @@
       ],
       "change_phase": [
         {
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ', 'あいつ'], usr[-1]))",
+          "next": [10]
+        },
+        {
+          "condition": "if (actID = 0) and (topicTurn > 5)",
+          "next": [9]
+        },
+        {
           "condition": "if (actID = 0) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
@@ -429,7 +437,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -443,14 +451,6 @@
         {
           "condition": "if (actID = 0) and in(['腹が出', '脂肪', '肥え','太', '体重' ,'医者', '体力','数値', '肝臓', '腎臓'], usr[-1])",
           "next": [6]
-        },
-        {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [11]
-        },
-        {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
-          "next": [9]
         },
         {
           "condition": "if (actID = 0)",
@@ -471,6 +471,14 @@
       ],
       "change_phase": [
         {
+          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
+          "next": [10]
+        },
+        {
+          "condition": "if (actID = 0) and (topicTurn > 5)",
+          "next": [9]
+        },
+        {
           "condition": "if (actID = 0) and in(['業務','職務','作業','タスク','役目','勤め','務め','仕事','つら','やるべき事','任務','使命','大義','忙','大変','きつ','ハード','辛', 'ヘビー'],usr[-1])",
           "next": [1]
         },
@@ -479,7 +487,7 @@
           "next": [2]
         },
         {
-          "condition": "if (actID = 0) and in(['体調が思わしくな', '体調不良', '病'], usr[-1])",
+          "condition": "if (actID = 0) and in(['体調', '病'], usr[-1])",
           "next": [3]
         },
         {
@@ -497,14 +505,6 @@
         {
           "condition": "if (actID = 0) and in(['飽き', 'うんざり', '面倒', '退屈', '気乗り','気が乗','やる気がな', 'やる気が失', '意欲がな','意欲が無'], usr[-1])",
           "next": [7]
-        },
-        {
-          "condition": "if (actID = 0) and (in(['一員','仲間', '顔触れ', '顔ぶれ', 'メンバ', '面子','メンツ','奴', 'ヤツ', 'やつ'], usr[-1]))",
-          "next": [10]
-        },
-        {
-          "condition": "if (actID = 0) and (topicTurn = 6)",
-          "next": [9]
         },
         {
           "condition": "if (actID = 0)",
@@ -536,11 +536,11 @@
       ],
       "change_phase": [
         {
-          "condition": "if (phaseID = 0) and in(['いや','違', 'ない', '異', 'いいえ', 'イイエ'], usr[-1])",
+          "condition": "if (actID = 0) and in(['いや','違', 'ない', '異', 'いいえ', 'イイエ'], usr[-1])",
           "next": [11]
         },
         {
-          "condition": "if (phaseID = 0)",
+          "condition": "if (actID = 0)",
           "next": [10]
         }
       ]
@@ -572,7 +572,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 2)",
+          "condition": "if (actID = 2)",
           "next": [17]
         }
       ]
@@ -604,7 +604,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 2)",
+          "condition": "if (actID = 2)",
           "next": [18]
         }
       ]
@@ -643,7 +643,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 3)",
+          "condition": "if (actID = 3)",
           "next": [19]
         }
       ]
@@ -668,7 +668,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 1)",
+          "condition": "if (actID = 1)",
           "next": [20]
         }
       ]
@@ -704,7 +704,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if  (act_id = 0)",
+          "condition": "if  (actID = 0)",
           "next": [12]
         }
       ]
@@ -722,7 +722,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 0)",
+          "condition": "if (actID = 0)",
           "next": [13]
         }
       ]
@@ -740,7 +740,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 0)",
+          "condition": "if (actID = 0)",
           "next": [14]
         }
       ]
@@ -758,7 +758,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 0)",
+          "condition": "if (actID = 0)",
           "next": [15]
         }
       ]
@@ -776,7 +776,7 @@
       ],
       "change_phase": [
         {
-          "condition": "if (act_id = 0)",
+          "condition": "if (actID = 0)",
           "next": [16]
         }
       ]
@@ -787,9 +787,15 @@
         {
           "act_id": 0,
           "condition": "if True",
-          "reply": "あ、でも当日になってみればわかりませんよ。テンション的な問題なら。",
-          "qa_reply": "あ、そうですよ。当日になってみればわかりませんよ。テンション的な問題なら。",
-          "next": [0]
+          "reply": "あ、でも当日になってみればわかりませんよ。なんとなくな感じなら。",
+          "qa_reply": "あ、そうですよ。当日になってみればわかりませんよ。なんとなくな感じなら。",
+          "next": [1]
+        },
+        {
+          "act_id": 1,
+          "condition": "if True",
+          "reply": "まあ、少しですけどまだ時間もありますし、もうちょっと考えておいてくださいよ。また連絡しますから。",
+          "next": [1]
         }
       ],
       "change_phase": [
