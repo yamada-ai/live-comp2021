@@ -52,7 +52,7 @@
         },
         {
           "act_id": 108,
-          "condition": "if (not(topicID = 1) and not(phaseID = 0)) and (yn(usr[-1]) or why(usr[-1])) and in(['促', '求', '欲', '望', '願'],usr[-1]) and in(['出席' ,'顔出', '参加'], usr[-1])",
+          "condition": "if (not(topicID = 1) and not(phaseID = 0)) and (yn(usr[-1]) or why(usr[-1])) and in(['促', '求', '欲', '望', '願'],usr[-1]) and in(['出席' ,'顔出', '参加'], usr[-1]))",
           "reply": "みんな先輩に来て欲しいって言っているからじゃないですか。それだけじゃ駄目ですか?",
           "next": [108]
         },
@@ -64,7 +64,7 @@
         },
         {
           "act_id": 110,
-          "condition": "if (not(topicID = 1) and not(phaseID = 0)) and (why(usr[-1]) or what(usr[-1]) or who(usr[-1]) or how(usr[-1]) and not in('小林', usr[-1])",
+          "condition": "if (not(topicID = 1) and not(phaseID = 0)) and (why(usr[-1]) or what(usr[-1]) or who(usr[-1]) or how(usr[-1]) and not in('小林', usr[-1]))",
           "reply": [
             "その辺りは割とアバウトですね。 話戻しますよ。",
             "どうだったかな? そこはあんまり頭になかったですね。じゃあ、続けますね。",
