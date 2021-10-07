@@ -20,17 +20,19 @@ class MMIBot:
     def __init__(self):
         self.user_context = {}
         # アクセストークン
-        self.token = "TOKEN"
+        self.token = "1508945228:AAETVoadpXvDw8Z5yX0jVLqK4SlDeROQtNQ"
         # 1対話の長さ(ユーザの発話回数)．ここは固定とする
         self.dialogue_length = 15
         # システムからの最初の発話
         self.init_utt = "湯川先輩お疲れ様です! 今お時間いいですか?"
         self.rule_path = "./project/rule/"
-        self.controller = Controller(self.rule_path)
+        # self.controller = Controller(self.rule_path)
+        self.user_controller = {}
 
     def start(self, bot, update):
         # 対話ログと発話回数を初期化
         self.user_context[update.message.from_user.id] = {"context": [], "count": 0}
+        self.user_controller[update.message.from_user.id] = Controller(self.rule_path)
         update.message.reply_text(self.init_utt)
 
 
@@ -45,7 +47,7 @@ class MMIBot:
         self.user_context[update.message.from_user.id]["context"].append(update.message.text)
 
         # controllerのreplyメソッドによりcontextから発話を生成
-        send_message = self.controller.reply(self.user_context[update.message.from_user.id]["context"])
+        send_message = self.user_controller[update.message.from_user.id].reply(self.user_context[update.message.from_user.id]["context"])
 
         # 送信する発話をcontextに追加
         self.user_context[update.message.from_user.id]["context"].append(send_message)

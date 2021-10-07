@@ -32,20 +32,21 @@ class Classifier:
 
     def load_model(self, name="typeClassify_M2.pickle", name_wiki = "wiki.ja.vec"):
         self.model = self.modelM.load_data(name)
-        # self.PNmodel = PN_Classifier(self.modelWIKI.load_data(name_wiki))
+        #self.PNmodel = PN_Classifier(self.modelWIKI.load_data(name_wiki))
         self.PNmodel = PN_Classifier(None)
     
     def load_F(self, name="typeClassify_F2.pickle"):
         self.F = self.FM.load_data(name)
         self.F.set_preprocessor(preprocess.Preprocessor())
 
-    def load_dict(self, name = "PN.pickle"):
+    def load_dict(self, name = "PN.pickle", name_wego = "PN_wago.pickle"):
         self.PNdict = self.FM.load_data(name)
+        self.WEGOdict = self.FM.load_data(name_wego)
     
     def predict_type(self, mode, text):
         f = self.F.featurization(text)
         y = self.model.predict(f.reshape(1, -1))
-        pn = self.PNmodel.predict(text, self.PNdict)
+        pn = self.PNmodel.predict(text, self.PNdict, self.WEGOdict)
         if self.classes_dict[mode] == y:
             return True
         elif self.classes_dict[mode] == pn:
