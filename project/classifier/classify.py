@@ -39,7 +39,7 @@ class Classifier:
         self.F = self.FM.load_data(name)
         self.F.set_preprocessor(preprocess.Preprocessor())
 
-    def load_dict(self, name = "PN.pickle", name_wego = "PN_wego.pickle"):
+    def load_dict(self, name = "PN.pickle", name_wego = "PN_wago.pickle"):
         self.PNdict = self.FM.load_data(name)
         self.WEGOdict = self.FM.load_data(name_wego)
     

@@ -39,7 +39,7 @@ class CulcParser:
         self.var_init()
 
         self.constant_t = set( map(self.TNUM_func,  "TNUMBER TSTRING True False [".split() + self.var_l ) )
-        self.func_name = set( map(self.TNUM_func, "in count yn who why what when where how positive negative".split()) )
+        self.func_name = set( map(self.TNUM_func, "in count yn who why what when which where how positive negative".split()) )
         self.multi_op = set( map( self.TNUM_func, "* / and".split() ) )
         self.add_op = set( map( self.TNUM_func, "+ - or".split() ))
         self.relation_op = set( map(self.TNUM_func, "= < > <= >=".split()) )
