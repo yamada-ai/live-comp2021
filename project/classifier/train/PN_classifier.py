@@ -85,6 +85,8 @@ class PN_Classifier():
     def get_document_pn_score(self, _doc, _dict, _wago_dict):
 
         # tokenize _doc
+        if not self.pre.get_lemma(_doc):
+            return 0 , []
         lemmas = self.pre.get_lemma(_doc)[0]
         POSes = self.pre.get_POS(_doc)[0]
         # 変数の初期化

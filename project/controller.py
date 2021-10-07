@@ -141,7 +141,8 @@ class Controller:
         # topic分類
         # 1. QA
         qa_utt = ""
-        qa_utt = self.check_QA_rules()
+        if self.current_ID["topic"] != 0:
+            qa_utt = self.check_QA_rules()
         # print(qa_utt)
         # QAリストに引っかかった場合，qa_utt に文字列がある
         # print(self.stateID_history)
@@ -233,7 +234,10 @@ class Controller:
                         # self.current_ID["act"] = ac["act_id"]
                         self.current_act = ac
                         self.next_qa_actID  = ac["next"]
-                        utt = ac["reply"]
+                        if isinstance(ac["reply"], str):
+                            utt = ac["reply"]
+                        else:
+                            utt = random.choice(ac["reply"])
                         break
         
         # もし 98, 99 なら返却処理
@@ -290,7 +294,11 @@ class Controller:
                     self.next_qa_actID = ac["next"]
                     self.current_ID["act"] = ac["act_id"]
                     self.current_act = ac
-                    utt = ac["reply"]
+                    if isinstance(ac["reply"], str):
+                        utt = ac["reply"]
+                    else:
+                        utt = random.choice(ac["reply"])
+                    
                     break
 
         if self.next_qa_actID[0] == 98:
@@ -350,7 +358,10 @@ class Controller:
                     print("reseted")
                     self.reset_QA()
 
-                utt = ac["reply"]
+                if isinstance(ac["reply"], str):
+                    utt = ac["reply"]
+                else:
+                    utt = random.choice(ac["reply"])
                 self.current_ID["act"] = ac["act_id"]
                 next_id = ac["next"][0]
 

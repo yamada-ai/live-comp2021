@@ -42,7 +42,8 @@ class Feature:
             type_name = type_.__name__
             self.features[type_name] = set()
 
-    def make_features(self, sentences, len_=4):
+    def make_features(self, sentences_, len_=4):
+        sentences = [self.pre.clean_text(sent) for sent in sentences_]
         for feature_func in self.feature_types:
             type_name = feature_func.__name__
             if "order" in type_name:
@@ -66,10 +67,11 @@ class Feature:
         self.feature_num = len(self.feature_number_dict)
 
 
-    def featurization(self, sentences, len_=4):
-        if isinstance(sentences, str):
-            sentences = [sentences]
+    def featurization(self, sentences_, len_=4):
+        if isinstance(sentences_, str):
+            sentences_ = [sentences_]
         # print("feature num: ", self.feature_num)
+        sentences = [self.pre.clean_text(sent) for sent in sentences_]
         x = np.zeros( self.feature_num )
         for feature_func in self.feature_types:
             type_name = feature_func.__name__
