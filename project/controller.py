@@ -373,6 +373,12 @@ class Controller:
                 elif next_id == 98:
                     # 98 で元のactに戻る
                     self.current_ID["act"] = self.stateID_history[-1]["act"]
+                    self.is_continue_QA = False
+                    self.set_current_state()
+                    if isinstance(self.current_act["qa_reply"], str):
+                        utt += self.current_act["qa_reply"]
+                    else:
+                        utt += random.choice(self.current_act["qa_reply"])
                 # 99
                 else:
                     # 99 で次のphase へ行く？
