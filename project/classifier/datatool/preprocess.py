@@ -1,12 +1,9 @@
 from pathlib import Path
-import json
 from numpy.lib.function_base import percentile
+from pkg_resources import normalize_path
+import json, spacy, re, neologdn
 import pandas as pd
 import numpy as np
-from pkg_resources import normalize_path
-import spacy
-import re
-import neologdn
 
 class Preprocessor:
 

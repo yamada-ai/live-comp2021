@@ -1,7 +1,4 @@
-import pickle
-import os
-import dill
-import gensim
+import pickle, os, dill, gensim
 
 class DataManager:
     def __init__(self, data_path, format_="pickle") -> None:

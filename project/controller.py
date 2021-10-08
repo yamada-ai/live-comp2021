@@ -1,17 +1,6 @@
-# from parse import parsing
-# from parse import lexical
-# from classifier import parse
-# import classifier
-from project.classifier.datatool import preprocess
 from project.classifier.parse.parsing import CulcParser
 from project.classifier.classify import Classifier
-# from project.classifier 
-import sys
-# sys.path.append("./datatool")
-import os
-import json
-import random
-import copy
+import os, json, random, copy
 
 class Controller:
     def __init__(self, rule_path) -> None:

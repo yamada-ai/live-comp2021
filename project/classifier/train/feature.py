@@ -1,15 +1,7 @@
-import os
-import sys
-
-from spacy.util import normalize_slice
-
-# sys.dont_write_bytecode = True
-sys.path.append('../')
-# from preprocess import Preprocessor
-
-import pprint
-import random
+import os, sys, pprint, random
 import numpy as np
+from spacy.util import normalize_slice
+sys.path.append('../')
 
 class Feature:
     def __init__(self) -> None:

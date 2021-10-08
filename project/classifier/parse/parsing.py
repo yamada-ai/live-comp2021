@@ -1,7 +1,6 @@
-from math import fabs
 from project.classifier.parse.lexical import Tokenizer
 from project.classifier.parse.lexical import Token
-
+from math import fabs
 from enum import IntEnum, auto
 
 class Stack:

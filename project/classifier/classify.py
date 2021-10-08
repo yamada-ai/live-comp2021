@@ -1,18 +1,8 @@
-
-from sklearn.linear_model import LogisticRegression
-
 import sys
-# sys.dont_write_bytecode = True
-# sys.path.append('../')
-# from datatool import maneger
-# from datatool import preprocess
-# from train import feature
-
 from project.classifier.train import feature
 from project.classifier.datatool import maneger
 from project.classifier.datatool import preprocess
 from project.classifier.train.PN_classifier import PN_Classifier
-
 sys.modules["feature"] = feature
 sys.modules["manager"] = maneger
 sys.modules["preprocess"] = preprocess

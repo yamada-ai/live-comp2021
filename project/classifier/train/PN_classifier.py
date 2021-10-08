@@ -1,5 +1,5 @@
-import math
 from project.classifier.datatool.preprocess import Preprocessor
+import math
 
 class PN_Classifier():
     def __init__(self, vec_model):

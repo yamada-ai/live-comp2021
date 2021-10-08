@@ -1,11 +1,7 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from telegram.update import Update
 import time, sys, logging
-
-from project.classifier.datatool import preprocess
 sys.path.append("project/classifier/")
 from project.controller import Controller
-from project.classifier import datatool
 
 # Enable logging
 logging.basicConfig(
