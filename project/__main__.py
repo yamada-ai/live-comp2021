@@ -16,7 +16,7 @@ class MMIBot:
     def __init__(self):
         self.user_context = {}
         # アクセストークン
-        self.token = "1508945228:AAETVoadpXvDw8Z5yX0jVLqK4SlDeROQtNQ"
+        self.token = "2061219908:AAFqA7nZQnfGhyw2lt1DBiMolcsPySVVI94"
         # 1対話の長さ(ユーザの発話回数)．ここは固定とする
         self.dialogue_length = 15
         # システムからの最初の発話
